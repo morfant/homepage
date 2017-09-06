@@ -1,0 +1,58 @@
+<template name="postSubmit">
+    <form class="main form">
+
+        <div class="form-group {{errorClass 'title'}}">
+            <label class="control-label" for="title">Title</label>
+            <div class="controls">
+                <input name="title" id="title" type="text" value="" placeholder="Name your post" class="form-control" />
+                <span class="help-block">{{errorMessage 'title'}}</span>
+            </div>
+        </div>
+
+        <div class="form-group {{errorClass 'desc'}}">
+                <label class="control-label" for="desc">Description</label>
+                <div class="controls">
+                    <input name="desc" id="desc" type="text" value="" class="form-control" />
+                    <span class="help-block">{{errorMessage 'desc'}}</span>
+                </div>
+        </div>
+
+        <div class="form-group {{errorClass 'role'}}">
+            <label class="control-label" for="role">Role</label>
+            <div class="controls">
+                <input name="role" id="role" type="text" value="" class="form-control" />
+                <span class="help-block">{{errorMessage 'role'}}</span>
+            </div>
+        </div>
+
+        <div class="form-group {{errorClass 'date'}}">
+            <label class="control-label" for="date">Date</label>
+            <div class="controls">
+                <input name="date" id="date" type="text" value="" class="form-control" />
+                <span class="help-block">{{errorMessage 'date'}}</span>
+            </div>
+        </div>
+
+
+        <div class="form-group {{errorClass 'venue'}}">
+            <label class="control-label" for="venue">venue</label>
+            <div class="controls">
+                <input name="venue" id="venue" type="text" value="" class="form-control" />
+                <span class="help-block">{{errorMessage 'venue'}}</span>
+            </div>
+        </div>
+
+        <div class="form-group {{errorClass 'text'}}">
+            <label class="control-label" for="text">Text</label>
+            <div class="controls">
+                <input name="text" id="text" type="text" value="" class="form-control" />
+                <span class="help-block">{{errorMessage 'text'}}</span>
+            </div>
+        </div>
+
+
+
+        <input type="submit" value="Submit" class="btn btn-primary" />
+
+    </form>
+</template>
