@@ -4,7 +4,7 @@
       <h3><a href="{{pathFor 'postPage'}}">{{title}}</a><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>{{desc}}</span> <span style="float:right">{{date}}</span></h3>
       <span> {{role}} <span style="float: right"> {{venue}} </span></span>
 
-      {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}}
+      <div> {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}} </div>
 
     </div>
   </div>
