@@ -1,16 +1,15 @@
 if (Posts.find().count() === 0) {
-  Posts.insert({
-    title: 'Introducing Telescope',
-    url: 'http://sachagreif.com/introducing-telescope/'
-  });
 
-  Posts.insert({
-    title: 'Meteor',
-    url: 'http://meteor.com'
-  });
+  for (var i = 0; i < 10; i++) {
+    Posts.insert({
+      title: 'Test post #' + i,
+      desc: 'description..',
+      role: 'role',
+      date: '2017.02.26',
+      venue: 'mullae art space',
+      tag: 'performance',
+      text: 'This performance...'
+    });
+  }
 
-  Posts.insert({
-    title: 'The Meteor Book',
-    url: 'http://themeteorbook.com'
-  });
 }

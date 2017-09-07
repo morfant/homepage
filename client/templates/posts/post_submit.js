@@ -16,13 +16,16 @@ Template.postSubmit.events({
         e.preventDefault();
 
         var post = {
-            // url: $(e.target).find('[name=url]').val(),
             title: $(e.target).find('[name=title]').val(),
+            desc: $(e.target).find('[name=desc]').val(),
             role: $(e.target).find('[name=role]').val(),
             date: $(e.target).find('[name=date]').val(),
             venue: $(e.target).find('[name=venue]').val(),
             text:  $(e.target).find('[name=text]').val(),
+            tag:  $(e.target).find('[name=tag]').val(),
         };
+
+        console.log(post);
 
         var errors = validatePost(post);
         if (errors.title) return Session.set('postSubmitErrors', errors);

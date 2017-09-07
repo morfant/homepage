@@ -19,12 +19,18 @@ Template.postEdit.events({
         var currentPostId = this._id;
 
         var postProperties = {
-            url: $(e.target).find('[name=url]').val(),
-            title: $(e.target).find('[name=title]').val()
-        }
+            title: $(e.target).find('[name=title]').val(),
+            desc: $(e.target).find('[name=desc]').val(),
+            role: $(e.target).find('[name=role]').val(),
+            date: $(e.target).find('[name=date]').val(),
+            venue: $(e.target).find('[name=venue]').val(),
+            text:  $(e.target).find('[name=text]').val(),
+            tag:  $(e.target).find('[name=tag]').val(),
+        };
+
 
         var errors = validatePost(postProperties);
-        if (errors.title || errors.url) return Session.set('postEditErrors', errors);
+        if (errors.title) return Session.set('postEditErrors', errors);
 
         Posts.update(currentPostId, {
             $set: postProperties

@@ -1,20 +1,65 @@
 <template name="postEdit">
     <form class="main">
-            <div class="form-group {{errorClass 'url'}}">
-            <label class="control-label" for="url">URL</label>
-            <div class="controls">
-                <input name="url" type="text" value="{{url}}" placeholder="Your URL" />
-                <span class="help-block">{{errorMessage 'url'}}</span>
-            </div>
-        </div>
 
         <div class="form-group {{errorClass 'title'}}">
             <label class="control-label" for="title">Title</label>
             <div class="controls">
-                <input name="title" type="text" value="{{title}}" placeholder="Name your post" />
+                <input name="title" id="title" type="text" value="{{title}}" placeholder="Name your post" class="form-control" />
                 <span class="help-block">{{errorMessage 'title'}}</span>
             </div>
         </div>
+
+        <div class="form-group {{errorClass 'desc'}}">
+                <label class="control-label" for="desc">Description</label>
+                <div class="controls">
+                    <input name="desc" id="desc" type="text" value="{{desc}}" class="form-control" />
+                    <span class="help-block">{{errorMessage 'desc'}}</span>
+                </div>
+        </div>
+
+        <div class="form-group {{errorClass 'role'}}">
+            <label class="control-label" for="role">Role</label>
+            <div class="controls">
+                <input name="role" id="role" type="text" value="{{role}}" class="form-control" />
+                <span class="help-block">{{errorMessage 'role'}}</span>
+            </div>
+        </div>
+
+        <div class="form-group {{errorClass 'date'}}">
+            <label class="control-label" for="date">Date</label>
+            <div class="controls">
+                <input name="date" id="date" type="text" value="{{date}}" class="form-control" />
+                <span class="help-block">{{errorMessage 'date'}}</span>
+            </div>
+        </div>
+
+
+        <div class="form-group {{errorClass 'venue'}}">
+            <label class="control-label" for="venue">Venue</label>
+            <div class="controls">
+                <input name="venue" id="venue" type="text" value="{{venue}}" class="form-control" />
+                <span class="help-block">{{errorMessage 'venue'}}</span>
+            </div>
+        </div>
+
+        <div class="form-group {{errorClass 'text'}}">
+            <label class="control-label" for="text">Text</label>
+            <div class="controls">
+                <textarea name="text" class="form-control" rows="5" id="comment" value="{{text}}"></textarea>
+                <span class="help-block">{{errorMessage 'text'}}</span>
+            </div>
+        </div>
+
+        <div class="form-group {{errorClass 'tag'}}">
+            <label class="control-label" for="tag">Tag</label>
+            <div class="controls">
+                <input name="tag" id="tag" type="text" value="{{tag}}" class="form-control" />
+                <span class="help-block">{{errorMessage 'tag'}}</span>
+            </div>
+        </div>
+
+
+
 
         <input type="submit" value="Submit" class="btn btn-primary submit" />
         <hr/>

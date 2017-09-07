@@ -1,14 +1,11 @@
 <template name="postItem">
   <div class="post">
-    <div class="post-content">
-      <h3>{{title}}<span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>{{desc}}</span></h3>
-      <span>{{role}}</span>
-      <span>{{date}}</span>
-      <span>{{venue}}</span>
+    <div class="post-content" style="width:100%">
+      <h3><a href="{{pathFor 'postPage'}}">{{title}}</a><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>{{desc}}</span> <span style="float:right">{{date}}</span></h3>
+      <span> {{role}} <span style="float: right"> {{venue}} </span></span>
 
-      <p>
-        {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}}
-      </p>
+      {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}}
+
     </div>
   </div>
 </template>
