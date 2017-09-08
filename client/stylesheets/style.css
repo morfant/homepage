@@ -129,6 +129,11 @@ body {
   line-height: 150%;
 }
 
+.post .post-content .text .post-image {
+  max-width: 90%;
+  display: block;
+  margin: 0 auto;
+}
 
 
 .post .discuss {

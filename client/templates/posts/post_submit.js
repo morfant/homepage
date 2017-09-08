@@ -22,6 +22,10 @@ Template.postSubmit.events({
             date: $(e.target).find('[name=date]').val(),
             venue: $(e.target).find('[name=venue]').val(),
             text:  $(e.target).find('[name=text]').val(),
+            imageLink_0: $(e.target).find('[name=image-link-0]').val(),
+            imageLink_1: $(e.target).find('[name=image-link-1]').val(),
+            imageLink_2: $(e.target).find('[name=image-link-2]').val(),
+            // imageName:  $(e.target).find('[name=imageName]').val(),
             tag:  $(e.target).find('[name=tag]').val(),
         };
 
