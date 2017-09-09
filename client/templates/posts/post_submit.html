@@ -77,6 +77,23 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="control-label" for="audio">Audio Link</label>
+            <div class="controls">
+                <input name="audio-link" id="audio" type="text" value="{{audioLink}}" class="form-control" />
+                <span class="help-block">{{errorMessage 'audio'}}</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="video">Video Link</label>
+            <div class="controls">
+                <input name="video-link" id="video" type="text" value="{{videoLink}}" class="form-control" />
+                <span class="help-block">{{errorMessage 'video'}}</span>
+            </div>
+        </div>
+
+
         <div class="form-group {{errorClass 'tag'}}">
             <label class="control-label" for="tag">Tag</label>
             <div class="controls">

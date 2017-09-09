@@ -1,6 +1,13 @@
 var post = null;
 var googleDriveConvertPrefix = "https://drive.google.com/uc?export=view&id=";
 
+
+Template.postPage.onCreated(function() {
+    // console.log("onCreated()");
+    // post = Posts.findOne({_id: this._id});
+    // console.log(post);
+});
+
 Template.postPage.helpers({
 
     imageLink: function(idx) {
@@ -24,5 +31,25 @@ Template.postPage.helpers({
         } else {
             return "";
         }
+    },
+
+    audioLink: function() {
+        if (post != null){
+            var url = post.audioLink;
+            return googleDriveConvertPrefix + url.split("id=")[1];
+        } else {
+            post = Posts.findOne({_id: this._id});
+        }
+    },
+
+    videoLink: function() {
+        if (post != null){
+            var url = post.videoLink;
+            return googleDriveConvertPrefix + url.split("id=")[1];
+        } else {
+            post = Posts.findOne({_id: this._id});
+        }
     }
+
+
 });
