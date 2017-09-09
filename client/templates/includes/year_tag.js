@@ -1,16 +1,40 @@
-Template.yearTag.helpers({
+var year = 0;
 
-    year: function() {
-        return "2017";
-    }
+Template.yearTag.onCreated(function() {
 
 });
 
 
 
+Template.registerHelper("getYear", function(dateBegin){
+    var y = moment(dateBegin).year();
+    // console.log("getyear(): " + y);
+    
+    if (y != year) {
+        year = y;
+        // console.log("true");
+        return true;
+    } else {
+        // console.log("false");
+        return false;
+    }
+
+
+ });
+
+
+Template.yearTag.helpers({
+    year: function() {
+        // console.log("year(): " + year.toString());
+        return year.toString();
+    },
+});
+
+
+
 Template.yearTag.events({
-    '#year': function (e) {
+    'click #year-tag': function (e) {
         e.preventDefault();
-        console.log("click year tag");
+        console.log("click year tag: " + e.target.textContent);
     }
 });

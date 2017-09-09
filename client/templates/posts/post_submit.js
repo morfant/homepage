@@ -15,6 +15,9 @@ Template.postSubmit.events({
     'submit form': function (e) {
         e.preventDefault();
 
+        // if 'date_end' is empty, fill with 'date_begin'
+        if (Session.get("date_end") == "") Session.set("date_end", Session.get("date_begin"));
+
         var post = {
             title: $(e.target).find('[name=title]').val(),
             desc: $(e.target).find('[name=desc]').val(),

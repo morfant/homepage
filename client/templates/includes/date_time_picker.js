@@ -21,6 +21,7 @@ Template.dateTimePicker.events({
         Session.set("date_begin", date);
         // console.log("date_begin: " + date);
 
+
     },
     'dp.change .datetimepicker_end': function (e) {
         e.preventDefault();

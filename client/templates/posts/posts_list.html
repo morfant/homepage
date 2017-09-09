@@ -1,5 +1,8 @@
 <template name="postsList">
-  <div class="posts">
-    {{#each posts}} {{> postItem}} {{/each}}
-  </div>
+    <div class="posts">
+        {{#each posts}}
+            {{> yearTag post=this}}
+            {{> postItem}}
+        {{/each}}
+    </div>
 </template>

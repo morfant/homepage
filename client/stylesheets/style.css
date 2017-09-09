@@ -7,16 +7,16 @@
 .comments li,
 .comment-form {
   background: #FFFFFF;
-  -webkit-border-radius: 3px;
+  /* -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  padding: 10px;
-  margin-bottom: 10px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  -o-border-radius: 3px; */
+  /* border-radius: 3px; */
+  padding: 60px;
+  /* margin-bottom: 10px; */
+  /* -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); */
 }
 
 body {
@@ -91,6 +91,11 @@ body {
   width: 100%;
 }
 
+#year-tag {
+
+}
+
+
 .post .post-content h3 {
   margin: 0;
   line-height: 1.4;
@@ -98,6 +103,7 @@ body {
 }
 
 .post .post-content h3 a {
+  color: black;
   display: inline-block;
   margin-right: 5px;
 }
