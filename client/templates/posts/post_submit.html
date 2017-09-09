@@ -28,7 +28,8 @@
         <div class="form-group {{errorClass 'date'}}">
             <label class="control-label" for="date">Date</label>
             <div class="controls">
-                <input name="date" id="date" type="text" value="" class="form-control" />
+                <!-- <input name="date" id="date" type="text" value="" class="form-control" /> -->
+                {{> dateTimePicker}}
                 <span class="help-block">{{errorMessage 'date'}}</span>
             </div>
         </div>
