@@ -15,5 +15,4 @@ Template.postsList.helpers({
         });
     },
 
-
 });
