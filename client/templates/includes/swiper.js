@@ -36,7 +36,7 @@ Template.swiper.onRendered(function () {
 
         var a = document.createElement("A");
         a.href = "/posts/"+obj.id;
-        a.style = "width:100%; height:100%";
+        a.style = "width:90%; height:100%";
         // console.log(a.href);
 
         var div = document.createElement("DIV");

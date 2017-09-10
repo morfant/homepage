@@ -2,12 +2,7 @@
 var post = null;
 
 Template.postPage.onCreated(function () {
-    // console.log(Session.get("slideImages"))
-    // console.log("onCreated()");
-    // post = Posts.findOne({_id: this._id});
-    // console.log(post);
-    console.log(Session.get("slideIndex"));
-    // console.log(mySwiper.clickedIndex);
+
 });
 
 Template.postPage.helpers({
@@ -20,11 +15,6 @@ Template.postPage.helpers({
         var imageIds = [];
         for (var i = 0; i < 3; i++) {
             imageIds[i] = convertGDlink(urls[i]);
-            // if (urls[i] != "") {
-            //     imageIds[i] = googleDriveConvertPrefix + urls[i].split("id=")[1];
-            // } else {
-            //     imageIds[i] = "";
-            // }
         }
         return imageIds[idx];
     },
@@ -41,7 +31,6 @@ Template.postPage.helpers({
         if (post != null) {
             var url = post.audioLink;
             return convertGDlink(url);
-            // return googleDriveConvertPrefix + url.split("id=")[1];
         } else {
             post = Posts.findOne({
                 _id: this._id
@@ -53,7 +42,6 @@ Template.postPage.helpers({
         if (post != null) {
             var url = post.videoLink;
             return convertGDlink(url);
-            // return googleDriveConvertPrefix + url.split("id=")[1];
         } else {
             post = Posts.findOne({
                 _id: this._id
