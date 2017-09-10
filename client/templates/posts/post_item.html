@@ -2,7 +2,9 @@
   <div class="post">
     <div class="post-content">
       {{addSlideImage imageLink_0 _id}}
-      <h3><a href="{{pathFor 'postPage'}}">{{title}}</a><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>{{desc}}</span> <span style="float:right">{{dateBegin}}</span></h3>
+      <h3><a href="{{pathFor 'postPage'}}">{{title}}</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <span>{{desc}}</span> <span style="float:right">{{getDate}}</span></h3>
       <span> {{role}} <span style="float: right"> {{venue}} </span></span>
 
       <div> {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}} </div>

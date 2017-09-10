@@ -37,6 +37,38 @@ Template.postItem.helpers({
     var a = document.createElement('a');
     a.href = this.url;
     return a.hostname;
-  }
+  },
+
+  getDate: function() {
+
+    var db = moment(this.dateBegin).format('MMM, DD');
+    var de = moment(this.dateEnd).format('MMM, DD');
+
+    if (db != de) {
+      var mb = moment(this.dateBegin).month();
+      var me = moment(this.dateEnd).month();
+
+      if (mb == me){
+        var period = db + " ~ " + moment(this.dateEnd).date();
+      } else {
+        var period = db + " ~ " + de;
+      }
+      return period;
+
+    } else {
+      return de;
+    }
+
+  },
+
+  // getDateBegin: function() {
+  //   var date = this.dateBegin;
+  //   return moment(date).format('MMM, DD');
+  // },
+
+  // getDateEnd: function() {
+  //   var date = this.dateEnd;
+  //   return moment(date).format('MMM, DD');
+  // }
 
 });
