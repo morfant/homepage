@@ -1,9 +1,44 @@
 // Session.setDefault('tags', 'none');
 
+var tags;
+var tagsObj = {};
+
 Template.mindMap.created = function(){
+
     var posts = [];
+    tags = [];
+    tagsObj = {};
     posts = Posts.find({"tag": { $exists: true, $ne: ""}}).fetch();
-    console.log(posts);
+    // console.log(posts);
+
+    posts.forEach(function(post) {
+        // var explicitSpecialChar = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\$%&\\\=\(\'\"]/gi;
+        // var tag = post.tag.replace(explicitSpecialChar, '');
+        // console.log(post.tag);
+        tag = post.tag.replace(/\s+/gi, '').split(','); // 공백 제거, ','를 기준으로 나눔
+        // console.log(tag);
+
+        if (tag != null && tag.length){
+            tag.forEach(function(t){
+                if(t[0] == '#'){
+                    var regex = /#+/gi;
+                    var rt = t.replace(regex, '');
+                    tags.push(rt);
+                }
+            }, this);
+        }
+
+    }, this);
+
+    tags.forEach(function(item){
+        if (!tagsObj.hasOwnProperty(item)){
+            tagsObj[item] = 1;
+        } else {
+            tagsObj[item]++;
+        }
+    });
+
+    console.log(tagsObj);
 
 }
 
