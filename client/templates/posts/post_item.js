@@ -41,8 +41,8 @@ Template.postItem.helpers({
 
   getDate: function() {
 
-    var db = moment(this.dateBegin).format('MMM, DD');
-    var de = moment(this.dateEnd).format('MMM, DD');
+    var db = moment(this.dateBegin).format('MMM DD');
+    var de = moment(this.dateEnd).format('MMM DD');
 
     if (db != de) {
       var mb = moment(this.dateBegin).month();

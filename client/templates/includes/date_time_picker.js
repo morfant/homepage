@@ -34,15 +34,18 @@ Template.dateTimePicker.onRendered(function() {
         });
     } else {
         this.$('.datetimepicker_begin').datetimepicker({
-            format: 'YYYY-MM-DD'
+            useCurrent: true,
+            format: 'YYYY-MM-DD',
+            defaultDate: moment().day() 
         });
         this.$('.datetimepicker_end').datetimepicker({
             useCurrent: false,
             format: 'YYYY-MM-DD'
         });
-
-
     } 
+
+    Session.set("date_begin", this.$('.datetimepicker_begin').data("DateTimePicker").date().toDate());
+    // console.log(this.$('.datetimepicker_begin').data("DateTimePicker").date().toDate());
 
 
 });
