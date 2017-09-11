@@ -327,3 +327,10 @@ svg {
   display: block;
   margin: auto;
 }
+
+svg .circle-text {
+  text-anchor: middle;
+  fill: #1B914C;
+  font-size: 14px;
+  font-family: 'Iropke Batang', serif; 
+}
