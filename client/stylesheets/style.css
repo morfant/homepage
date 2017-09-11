@@ -322,3 +322,8 @@ body {
 .swiper-button-prev {
 
 }
+
+svg {
+  display: block;
+  margin: auto;
+}
