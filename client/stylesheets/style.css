@@ -26,8 +26,13 @@ body {
 
 .navbar {
   margin-bottom: 10px;
+  min-height: 100px;
 }
 
+.navbar-fixed-top {
+  margin: auto;
+  width: 83%;
+}
 
 /* line 32, ../sass/style.scss */
 
@@ -334,3 +339,6 @@ svg .circle-text {
   font-size: 14px;
   font-family: 'Iropke Batang', serif; 
 }
+
+
+body { padding-top: 70px; }
