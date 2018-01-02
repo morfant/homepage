@@ -28,6 +28,33 @@ Template.postPage.helpers({
         return lineBreakText;
     },
 
+    checkLink: function() {
+
+        if (post != null) {
+
+            //img
+            var urls = [post.imageLink_0, post.imageLink_1, post.imageLink_2];
+            for (var i = 0; i < 3; i++) {
+                if (urls[i] != "") { hasImage[i] = true; }
+            }
+    
+            //audio
+            var url_audio = post.audioLink;
+            if (url_audio != "") hasAudio = true;
+
+            //video
+            var url_video = post.videoLink;
+            if (url_video != "") hasVideo = true;
+
+        } else {
+            post = Posts.findOne({
+                _id: this._id
+            });
+        }
+
+
+    },
+
     imageLink: function (idx) {
 
         var urls = [post.imageLink_0, post.imageLink_1, post.imageLink_2];
@@ -36,11 +63,44 @@ Template.postPage.helpers({
         for (var i = 0; i < 3; i++) {
             if (urls[i] != "") {
                 imageIds[i] = convertGDlink(urls[i]);
-                hasImage[i] = true;
+                // hasImage[i] = true;
             }
         }
         // console.log(hasImage);
         return imageIds[idx];
+    },
+
+    imageName: function () {
+        if (post != null) {
+            return post.imageName;
+        } else {
+            return "";
+        }
+    },
+
+    audioLink: function () {
+        if (post != null) {
+            var url = post.audioLink;
+            // if (url != "") hasAudio = true;
+            return convertGDlink(url);
+        } else {
+            post = Posts.findOne({
+                _id: this._id
+            });
+        }
+    },
+
+    videoLink: function () {
+        if (post != null) {
+            var url = post.videoLink;
+            // if (url != "") hasVideo = true;
+            // console.log(hasVideo);
+            return convertGDlink(url);
+        } else {
+            post = Posts.findOne({
+                _id: this._id
+            });
+        }
     },
 
     getHasImage: function(idx) {
@@ -55,41 +115,6 @@ Template.postPage.helpers({
         return hasAudio;
     },
 
-    isImageEmpty: function () {
-
-    },
-
-    imageName: function () {
-        if (post != null) {
-            return post.imageName;
-        } else {
-            return "";
-        }
-    },
-
-    audioLink: function () {
-        if (post != null) {
-            var url = post.audioLink;
-            if (url != "") hasAudio = true;
-            return convertGDlink(url);
-        } else {
-            post = Posts.findOne({
-                _id: this._id
-            });
-        }
-    },
-
-    videoLink: function () {
-        if (post != null) {
-            var url = post.videoLink;
-            if (url != "") hasVideo = true;
-            return convertGDlink(url);
-        } else {
-            post = Posts.findOne({
-                _id: this._id
-            });
-        }
-    }
 
 
 });

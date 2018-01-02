@@ -4,6 +4,8 @@
 
             <div class="text">
 
+                {{checkLink}}
+
                 {{#if getHasAudio}}
                     <audio class="audio" controls>
                         <source src="{{audioLink}}" type="audio/mpeg">
@@ -18,7 +20,10 @@
                 <p>{{{htmlText}}}</p> <!-- replace some characters to display as html -->
 
                 <br><br>
+
+                {{#if getHasImage 0}}
                 <img class="post-image" src="{{imageLink 0}}" alt="{{imageName}}" />
+                {{/if}}
 
                 {{#if getHasImage 1}}
                     <img class="post-image" src="{{imageLink 1}}" alt="{{imageName}}" />
@@ -34,8 +39,9 @@
 
                 <!-- <div class="video"> -->
                     <video class="video" controls>
+                        <!-- <source src="{{videoLink}}" type="video/webm"> -->
                         <source src="{{videoLink}}" type="video/mp4">
-                        <source src="{{videoLink}}" type="video/ogg"> Your browser does not support the video tag.
+                        <!-- <source src="{{videoLink}}" type="video/ogg"> Your browser does not support the video tag. -->
                     </video>
                 <!-- </div> -->
                 {{/if}}
