@@ -1,5 +1,6 @@
 Template.postEdit.created = function () {
     Session.set('postEditErrors', {});
+
 }
 
 Template.postEdit.helpers({
@@ -9,9 +10,9 @@ Template.postEdit.helpers({
     errorClass: function (field) {
         return !!Session.get('postEditErrors')[field] ? 'has-error' : '';
     },
-    imageLink: function() {
-        return 
-    }
+    // imageLink: function() {
+    //     return 
+    // }
 });
 
 

@@ -4,8 +4,14 @@
       {{addSlideImage imageLink_0 _id}}
       <h3><a href="{{pathFor 'postPage'}}">{{title}}</a>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <span>{{desc}}</span> <span style="float:right">{{getDate}}</span></h3>
-      <span> {{role}} <span style="float: right"> {{venue}} </span></span>
+      <span> {{role}} </span>
+        <span style="float:right">{{getDate}}</span>
+        </h3>
+        <p>{{desc}}</p> 
+
+        <!-- <p style="float:left">{{getDate}}</p> -->
+        <!-- <p>{{getDate}}</p> -->
+      <p> {{venue}} </p>
 
       <div> {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}} </div>
 

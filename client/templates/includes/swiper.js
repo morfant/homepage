@@ -10,16 +10,9 @@ Template.swiper.onCreated(function () {
 });
 
 
-
-Template.registerHelper("getYear", function (dateBegin) {
-
-});
-
-
 Template.swiper.helpers({
 
 });
-
 
 
 Template.swiper.events({
@@ -71,7 +64,7 @@ Template.swiper.onRendered(function () {
             paginationClickable: true,
             spaceBetween: 30,
             centeredSlides: true,
-            autoplay: 3500,
+            autoplay: 7000,
             autoplayDisableOnInteraction: false,
 
             onSlideChangeEnd: setSlideIndex,

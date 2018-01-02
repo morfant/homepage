@@ -4,22 +4,32 @@
 
             <div class="text">
 
+                {{#if getHasAudio}}
                     <audio class="audio" controls>
                         <source src="{{audioLink}}" type="audio/mpeg">
                         <source src="{{audioLink}}" type="audio/ogg"> Your browser does not support the audio element.
                     </audio>
-
+                {{/if}}
 
                 {{title}}
                 <br><br>
 
-                <p> {{text}} </p>
+                <!-- Display text -->
+                <p>{{{htmlText}}}</p> <!-- replace some characters to display as html -->
+
                 <br><br>
                 <img class="post-image" src="{{imageLink 0}}" alt="{{imageName}}" />
-                <img class="post-image" src="{{imageLink 1}}" alt="{{imageName}}" />
-                <img class="post-image" src="{{imageLink 2}}" alt="{{imageName}}" />
+
+                {{#if getHasImage 1}}
+                    <img class="post-image" src="{{imageLink 1}}" alt="{{imageName}}" />
+                {{/if}}
+
+                {{#if getHasImage 2}}
+                    <img class="post-image" src="{{imageLink 2}}" alt="{{imageName}}" />
+                {{/if}}
 
 
+                {{#if getHasVideo}}
                 <br><br>
 
                 <!-- <div class="video"> -->
@@ -28,6 +38,7 @@
                         <source src="{{videoLink}}" type="video/ogg"> Your browser does not support the video tag.
                     </video>
                 <!-- </div> -->
+                {{/if}}
 
             </div>
 
