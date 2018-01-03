@@ -25,6 +25,9 @@
 
                 <br><br>
 
+                <p>Tags</p>
+                <p>{{tag}}</p>
+
                 <!--
                 {{#if getHasImage 0}}
                 <img class="post-image" src="{{imageLink 0}}" alt="{{imageName}}" />
@@ -37,22 +40,18 @@
                 {{#if getHasImage 2}}
                     <img class="post-image" src="{{imageLink 2}}" alt="{{imageName}}" />
                 {{/if}}
-                -->
 
 
                 {{#if getHasVideo}}
                 <br><br>
 
-                <!-- <div class="video"> -->
                     <video class="video" controls>
-                        <!-- <source src="{{videoLink}}" type="video/webm"> -->
                         <source src="{{videoLink}}" type="video/mp4">
                         <source src="{{videoLink}}" type="video/ogg">
                         Your browser does not support the video tag.
                     </video>
-                <!-- </div> -->
                 {{/if}}
-
+                -->
                 
 
             </div>

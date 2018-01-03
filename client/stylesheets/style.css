@@ -342,3 +342,14 @@ svg .circle-text {
 
 /* space between bottom of header and body */
 body { padding-top: 70px; }
+
+
+.tt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+
+}
