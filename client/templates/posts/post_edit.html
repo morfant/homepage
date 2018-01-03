@@ -46,13 +46,13 @@
         <div class="form-group {{errorClass 'text'}}">
             <label class="control-label" for="text">Text</label>
             <div class="controls">
-                <textarea name="text" class="form-control" rows="5" value="{{text}}"></textarea>
+                <textarea name="text" class="form-control" rows="20" value="{{text}}"></textarea>
                 <span class="help-block">{{errorMessage 'text'}}</span>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label" for="image">Image Link 0 (For image slide)</label>
+            <label class="control-label" for="image">Image Link 0 (Only for image slide)</label>
             <div class="controls">
                 <input name="image-link-0" id="image" type="text" value="{{imageLink_0}}" class="form-control" />
                 <!-- {{> uploadForm}} -->

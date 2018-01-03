@@ -1,8 +1,12 @@
 <template name="postPage">
     <div class="post">
+        
+        <div> {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}} </div>
+
         <div class="post-content">
 
             <div class="text">
+
 
                 {{checkLink}}
 
@@ -21,6 +25,7 @@
 
                 <br><br>
 
+                <!--
                 {{#if getHasImage 0}}
                 <img class="post-image" src="{{imageLink 0}}" alt="{{imageName}}" />
                 {{/if}}
@@ -32,6 +37,7 @@
                 {{#if getHasImage 2}}
                     <img class="post-image" src="{{imageLink 2}}" alt="{{imageName}}" />
                 {{/if}}
+                -->
 
 
                 {{#if getHasVideo}}
@@ -41,10 +47,13 @@
                     <video class="video" controls>
                         <!-- <source src="{{videoLink}}" type="video/webm"> -->
                         <source src="{{videoLink}}" type="video/mp4">
-                        <!-- <source src="{{videoLink}}" type="video/ogg"> Your browser does not support the video tag. -->
+                        <source src="{{videoLink}}" type="video/ogg">
+                        Your browser does not support the video tag.
                     </video>
                 <!-- </div> -->
                 {{/if}}
+
+                
 
             </div>
 

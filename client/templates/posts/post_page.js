@@ -11,6 +11,9 @@ Template.postPage.onCreated(function () {
 });
 
 Template.postPage.helpers({
+    ownPost: function () {
+        return this.userId === Meteor.userId();
+    },
 
     htmlText: function () {
 
@@ -51,6 +54,8 @@ Template.postPage.helpers({
                 _id: this._id
             });
         }
+
+        console.log(hasAudio);
 
 
     },
