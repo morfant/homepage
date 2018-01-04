@@ -55,7 +55,7 @@ Template.postPage.helpers({
             });
         }
 
-        console.log(hasAudio);
+        // console.log(hasAudio);
 
 
     },

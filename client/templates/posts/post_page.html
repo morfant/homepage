@@ -2,12 +2,14 @@
     <div class="post">
         
         <div> {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}} </div>
+        <div> <a href="{{pathFor 'postsList'}}">List</a> </div>
 
         <div class="post-content">
 
             <div class="text">
 
 
+                <!--
                 {{checkLink}}
 
                 {{#if getHasAudio}}
@@ -16,6 +18,7 @@
                         <source src="{{audioLink}}" type="audio/ogg"> Your browser does not support the audio element.
                     </audio>
                 {{/if}}
+                -->
 
                 {{title}}
                 <br><br>

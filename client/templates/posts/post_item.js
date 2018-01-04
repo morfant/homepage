@@ -5,7 +5,7 @@ Template.postItem.onCreated(function () {
   arr = Session.get("slideImages");
 });
 
-Template.registerHelper("addSlideImage", function (imglink, id) {
+Template.registerHelper("addSlideImage", function (imglink, id, title) {
 
   if (imglink != "") {
 
@@ -19,7 +19,7 @@ Template.registerHelper("addSlideImage", function (imglink, id) {
     }
 
     if (!hasAlready) {
-      var a = { imglink, id };
+      var a = { imglink, id, title};
       arr.push(a);
       Session.set("slideImages", arr);
     }

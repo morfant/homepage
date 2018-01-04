@@ -27,17 +27,25 @@ Template.swiper.onRendered(function () {
     arr.forEach(function(obj) {
         // console.log(obj.imglink, obj.id);
 
+        var div = document.createElement("DIV");
+        div.className = "swiper-slide";
+        div.style = "cursor:pointer; background-image:url(" + convertGDlink(obj.imglink) + ")";
+
         var a = document.createElement("A");
         a.href = "/posts/"+obj.id;
         a.style = "width:90%; height:100%";
         // console.log(a.href);
 
-        var div = document.createElement("DIV");
-        div.className = "swiper-slide";
-        div.style = "cursor:pointer; background-image:url(" + convertGDlink(obj.imglink) + ")";
+        // Title text
+        var p = document.createElement("P");
+        p.className = "swiper-title-text";
+        var t = document.createTextNode(obj.title);
+        p.appendChild(t);
 
+        a.appendChild(p);
         div.appendChild(a);
         document.getElementById("swiper-wrapper").appendChild(div);
+
     }, this);
 
 

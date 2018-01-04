@@ -328,6 +328,18 @@ body {
 
 }
 
+.swiper-title-text {
+  font-family: 'Iropke Batang', serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: rgb(53, 42, 42);
+  opacity: 0.8;
+  width: 80%;
+}
+
 svg {
   display: block;
   margin: auto;
@@ -344,12 +356,3 @@ svg .circle-text {
 body { padding-top: 70px; }
 
 
-.tt {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  color: white;
-
-}
