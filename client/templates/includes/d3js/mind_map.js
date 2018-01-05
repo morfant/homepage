@@ -1,36 +1,40 @@
-// Session.setDefault('tags', 'none');
+Session.set('tagsWithNum', '');
 
 var tags;
 var tagsObj = {};
 
 Template.mindMap.created = function () {
-    console.log("mindMap created()");
+    // console.log("mindMap created()");
 
     var posts = [];
     tags = [];
     tagsObj = {};
-    posts = Posts.find({
-        "tag": {
-            $exists: true,
-            $ne: ""
-        }
-    }).fetch();
-    // console.log(posts);
+    // posts = Posts.find({
+    //     "tag": {
+    //         $exists: true,
+    //         $ne: ""
+    //     }
+    // }).fetch();
+
+    posts = Posts.find();
 
     posts.forEach(function (post) {
         // var explicitSpecialChar = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\$%&\\\=\(\'\"]/gi;
         // var tag = post.tag.replace(explicitSpecialChar, '');
         // console.log(post.tag);
-        tag = post.tag.replace(/\s+/gi, '').split(','); // 공백 제거, ','를 기준으로 나눔
+        // tag = post.tag.replace(/\s+/gi, '').split(','); // 공백 제거, ','를 기준으로 나눔
+        tag = post.tag;
         // console.log(tag);
 
         if (tag != null && tag.length) {
             tag.forEach(function (t) {
-                if (t[0] == '#') {
-                    var regex = /#+/gi;
-                    var rt = t.replace(regex, '');
-                    tags.push(rt);
-                }
+                tags.push(t);
+                // console.log(t);
+                // if (t[0] == '#') {
+                //     var regex = /#+/gi;
+                //     var rt = t.replace(regex, '');
+                    // tags.push(rt);
+                // }
             }, this);
         }
 
@@ -48,7 +52,8 @@ Template.mindMap.created = function () {
         }
     });
 
-    console.log(tagsObj);
+    Session.set("tagsWithNum", tagsObj);
+    // console.log(tagsObj);
 
 }
 

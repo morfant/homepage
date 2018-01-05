@@ -336,6 +336,18 @@ body {
 
 }
 
+#swiper-tag-text {
+  font-family: 'Iropke Batang', serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: rgb(233, 22, 22);
+  opacity: 0.8;
+  width: 80%;
+}
+
 .swiper-title-text {
   font-family: 'Iropke Batang', serif;
   position: absolute;

@@ -1,10 +1,11 @@
-<template name="postsList">
+<template name="postsListTag">
 
-    <div> {{> mindMap}} </div>
+    <!-- <div> {{> mindMap}} </div> -->
     <div> {{> swiper}} </div>
 
+
     <div class="posts">
-        {{#each posts}}
+        {{#each posts tag}}
 
             <!-- {{> yearTag post=this}} -->
             {{> yearTag}}
