@@ -2,64 +2,76 @@ var arr = [];
 var hasAlready;
 
 Template.postItem.onCreated(function () {
-  arr = Session.get("slideImages");
+    arr = Session.get("slideImages");
 });
 
 Template.registerHelper("addSlideImage", function (imglink, id, title) {
 
-  if (imglink != "") {
+    if (imglink != "") {
 
-    hasAlready = false;
+        hasAlready = false;
 
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i].id == id) {
-        // console.log("has already same");
-        hasAlready = true;
-      }
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i].id == id) {
+                // console.log("has already same");
+                hasAlready = true;
+            }
+        }
+
+        if (!hasAlready) {
+        var a = { imglink, id, title};
+        arr.push(a);
+        Session.set("slideImages", arr);
+        }
     }
-
-    if (!hasAlready) {
-      var a = { imglink, id, title};
-      arr.push(a);
-      Session.set("slideImages", arr);
-    }
-  }
 
 });
 
 Template.postItem.helpers({
 
-  ownPost: function () {
-    return this.userId === Meteor.userId();
-  },
+    ownPost: function () {
+        return this.userId === Meteor.userId();
+    },
 
-  domain: function () {
-    var a = document.createElement('a');
-    a.href = this.url;
-    return a.hostname;
-  },
+    domain: function () {
+        var a = document.createElement('a');
+        a.href = this.url;
+        return a.hostname;
+    },
 
-  getDate: function() {
+    getDate: function() {
 
-    var db = moment(this.dateBegin).format('MMM D');
-    var de = moment(this.dateEnd).format('MMM D');
+        var db = moment(this.dateBegin).format('MMM D');
+        var de = moment(this.dateEnd).format('MMM D');
 
-    if (db != de) {
-      var mb = moment(this.dateBegin).month();
-      var me = moment(this.dateEnd).month();
+        if (db != de) {
+        var mb = moment(this.dateBegin).month();
+        var me = moment(this.dateEnd).month();
 
-      if (mb == me){
-        var period = db + " ~ " + moment(this.dateEnd).date();
-      } else {
-        var period = db + " ~ " + de;
-      }
-      return period;
+        if (mb == me){
+            var period = db + " ~ " + moment(this.dateEnd).date();
+        } else {
+            var period = db + " ~ " + de;
+        }
+        return period;
 
-    } else {
-      return de;
+        } else {
+        return de;
+        }
+
+    },
+
+    showTags: function (tag) {
+
+        var displayTags = [];
+        if (tag != null && tag.length) {
+            tag.forEach(function (t) {
+                displayTags.push(' #' + t);
+            });
+        }
+
+        return displayTags;
     }
-
-  },
 
   // getDateBegin: function() {
   //   var date = this.dateBegin;

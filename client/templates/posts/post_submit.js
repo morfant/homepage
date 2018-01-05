@@ -18,6 +18,25 @@ Template.postSubmit.events({
         // if 'date_end' is empty, fill with 'date_begin'
         if (Session.get("date_end") == "") Session.set("date_end", Session.get("date_begin"));
 
+        // Handle tag
+        var tags = [];
+        var tag = $(e.target).find('[name=tag]').val();
+        // console.log(tag);
+        tag = tag.replace(/\s+/gi, '').split(','); // 공백 제거, ','를 기준으로 나눔
+        // console.log(tag);
+
+        // '#' 제거
+        if (tag != null && tag.length) {
+            tag.forEach(function (t) {
+                if (t[0] == '#') {
+                    var regex = /#+/gi;
+                    var rt = t.replace(regex, '');
+                    tags.push(rt);
+                }
+            });
+        }
+        // console.log(tags);
+
         var post = {
             title: $(e.target).find('[name=title]').val(),
             desc: $(e.target).find('[name=desc]').val(),
@@ -32,7 +51,7 @@ Template.postSubmit.events({
             imageLink_2: $(e.target).find('[name=image-link-2]').val(),
             videoLink: $(e.target).find('[name=video-link]').val(),
             // imageName:  $(e.target).find('[name=imageName]').val(),
-            tag:  $(e.target).find('[name=tag]').val(),
+            tag: tags // Array
         };
 
         console.log(post);

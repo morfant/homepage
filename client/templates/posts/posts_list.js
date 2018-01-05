@@ -1,3 +1,5 @@
+var filterdId = [];
+
 var getScrollPosition = function () {
     scroll_t = $(document).scrollTop();
     scroll_l = $(document).scrollLeft();
@@ -13,6 +15,7 @@ Template.postsList.onCreated(function() {
 
 Template.postsList.helpers({
     posts: function () {
+        console.log("posts()");
         return Posts.find({}, {
             sort: {
                 dateBegin : -1 //newer one will display on top.
