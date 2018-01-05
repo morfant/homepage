@@ -2,9 +2,9 @@
     <div class="post">
         
         <div> {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}} </div>
-        <div> <a href="{{pathFor 'postsList'}}">Back</a> </div>
 
         <div class="post-content">
+            <a class="back-to-list" href="{{pathFor 'postsList'}}">Back</a>
 
             <div class="text">
 
@@ -28,8 +28,10 @@
 
                 <br><br>
 
+                {{#if tag}}
                 <p>Tags</p>
                 <p>{{tag}}</p>
+                {{/if}}
 
                 <!--
                 {{#if getHasImage 0}}
