@@ -2,10 +2,15 @@ var arr = [];
 var hasAlready;
 
 Template.postItem.onCreated(function () {
-    arr = Session.get("slideImages");
+    // console.log("post_item created");
+    // arr = Session.get("slideImages");
 });
 
 Template.registerHelper("addSlideImage", function (imglink, id, title) {
+    // var arr = [];
+
+    arr = Session.get("slideImages");
+    console.log("addSlideImage: " + arr);
 
     if (imglink != "") {
 
@@ -19,9 +24,9 @@ Template.registerHelper("addSlideImage", function (imglink, id, title) {
         }
 
         if (!hasAlready) {
-        var a = { imglink, id, title};
-        arr.push(a);
-        Session.set("slideImages", arr);
+            var a = { imglink, id, title};
+            arr.push(a);
+            Session.set("slideImages", arr);
         }
     }
 
