@@ -1,6 +1,5 @@
 var arr = [];
 var slideIndex;
-ccc = null;
 
 Template.swiper.onCreated(function () {
 
@@ -27,6 +26,9 @@ Template.swiper.onCreated(function () {
 
 
 Template.swiper.helpers({
+    getTag: function (_tag) {
+        console.log(_tag);
+    }
 
 });
 
@@ -38,16 +40,6 @@ Template.swiper.events({
 
 
 Template.swiper.onRendered(function () {
-
-    // Tracker.autorun((computation) => {
-    //     console.log(computation);
-        // if (!Session.get("isSlideImagesSet") == true) {
-        // // if (Tracker.nonreactive(getSession) == false) {
-        //     console.log("isSlideImageSet false return!!");
-        //     return;
-        // }
-
-        // if (Session.get("isSlideImagesSet") == true) {
 
             var mySwiper = null;
     
@@ -132,7 +124,7 @@ Template.swiper.onRendered(function () {
 
         if (mySwiper != null) {
             console.log("fin");
-            Session.set("isSlideImagesSet", false);
+            // Session.set("isSlideImagesSet", false);
             // console.log("currentComputation: " + Tracker.currentCompution);
             // console.log("computation: ");
             // console.log(computation);
