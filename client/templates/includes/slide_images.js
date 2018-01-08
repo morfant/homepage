@@ -2,6 +2,7 @@ Template.slideImages.created = function () {
     
     console.log("slideImages() create");
 
+    /*
 
     var _tag = Router.current().params.tag;
 
@@ -33,13 +34,16 @@ Template.slideImages.created = function () {
 
     console.log("slideImages onCreated() slideImageArr: " + slideImageArr);
     global_arr = slideImageArr;
+    */
 
  
 
 };
 
 Template.slideImages.helpers({
+
     setSlideImages: function (_tag) {
+        console.log("setSlideImages()");
         if (_tag == undefined) {
             posts = Posts.find();
         } else {

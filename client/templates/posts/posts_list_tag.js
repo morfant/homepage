@@ -10,6 +10,7 @@ var getScrollPosition = function () {
 
 Template.postsListTag.onCreated(function() {
 
+    console.log("postsListTag created()");
 
     /*
     // Tracker.autorun((computation) => {
@@ -49,6 +50,7 @@ Template.postsListTag.helpers({
 
 
 Template.postsListTag.onRendered(function() {
+    console.log("postsListTag rendered()");
 
     /*
     // Tracker.autorun((computation) => {

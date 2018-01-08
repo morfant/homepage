@@ -1,5 +1,6 @@
 var arr = [];
 var slideIndex;
+mySwiper = null;
 
 Template.swiper.onCreated(function () {
 
@@ -28,8 +29,7 @@ Template.swiper.onCreated(function () {
 Template.swiper.helpers({
     getTag: function (_tag) {
         console.log(_tag);
-    }
-
+    },
 });
 
 
@@ -41,7 +41,28 @@ Template.swiper.events({
 
 Template.swiper.onRendered(function () {
 
-            var mySwiper = null;
+    console.log("swiper onRendred()");
+
+    this.autorun(() => {
+        //clear previous swiper DOM
+        var previousSwiper = document.getElementById("swiper-wrapper");
+        if (previousSwiper){
+            while (previousSwiper.firstChild) {
+                previousSwiper.removeChild(previousSwiper.firstChild);
+            }
+
+            // clear swiper-wrapper style
+            previousSwiper.style = "";
+        } else {
+            console.log("No previous swiper")
+        }
+
+        console.log(Template.currentData());
+        console.log("swiper onRender() autorun");
+
+
+            // var mySwiper = null;
+            mySwiper = null;
     
             // arr = Session.get("slideImages");
             arr = global_arr;
@@ -79,7 +100,7 @@ Template.swiper.onRendered(function () {
                 };
             
 
-                var mySwiper = new Swiper('.swiper-container', {
+                mySwiper = new Swiper('.swiper-container', {
                     // Optional parameters
                     direction: 'horizontal',
                     loop: false,
@@ -97,11 +118,12 @@ Template.swiper.onRendered(function () {
                     paginationClickable: true,
                     spaceBetween: 30,
                     centeredSlides: true,
-                    autoplay: 7000,
+                    autoplay: 2000,
                     autoplayDisableOnInteraction: false,
 
                     onSlideChangeEnd: setSlideIndex,
-                    centeredSlides: true
+                    centeredSlides: true,
+
 
                     // setWrapperSize: true,
                     // autoHeight: true
@@ -109,18 +131,31 @@ Template.swiper.onRendered(function () {
 
                 });
 
+            console.log(mySwiper.slides.length);
+
+            if (mySwiper != null && mySwiper.slides.length <= 1) {
+                console.log("Disable slide");
+                // mySwiper.params.allowSlideNext = false;
+                // mySwiper.params.allowSlidePrev = false;
+                mySwiper.params.allowSwipeToNext = false;
+                mySwiper.params.allowSwipeToPrev = false;
+                mySwiper.params.autoplay = false;
+                mySwiper.allowTouchMove = false;
+                previousSwiper.style = "";
+                console.log(mySwiper.slides[0].className);
+                // mySwiper.slides[0].className += " " + 'swiper-no-swiping';
+                mySwiper.slides[0].className = 'swiper-no-swiping';
+                mySwiper.pagination = false;
+
+                console.log(mySwiper.slides[0].className);
+            }
+
+
                 console.log(mySwiper);
                 // set to displaying slide
                 // mySwiper.slideTo(Session.get("slideIndex"), 0);
                 mySwiper.slideTo(slideIndex, 0);
             } 
-        // }
-        
-        // else {
-        //     console.log("isSildeImagesSet false 2");
-        // }
-
-        // computation.stop();
 
         if (mySwiper != null) {
             console.log("fin");
@@ -134,6 +169,6 @@ Template.swiper.onRendered(function () {
         }
 
 
-    // });
+    });
 
 });
