@@ -94,15 +94,18 @@ Template.swiper.onRendered(function () {
                 }, this); 
 
                 var setSlideIndex = function(){
-                    slideIndex = mySwiper.activeIndex;
-                    // console.log("slideIndex: " + slideIndex);
-                    // Session.set("slideIndex", mySwiper.activeIndex);
+                    if (mySwiper != null) {
+                        slideIndex = mySwiper.activeIndex;
+                        console.log("slideIndex: " + slideIndex);
+                        // Session.set("slideIndex", mySwiper.activeIndex);
+                    }
                 };
             
 
                 mySwiper = new Swiper('.swiper-container', {
                     // Optional parameters
                     direction: 'horizontal',
+                    // loop: true, // if this is true, you have to add 2 on 'mySwiper.slides.length' to estimate it.
                     loop: false,
 
                     // If we need pagination
@@ -118,6 +121,7 @@ Template.swiper.onRendered(function () {
                     paginationClickable: true,
                     spaceBetween: 30,
                     centeredSlides: true,
+                    // autoplay: {delay: 5000,},
                     autoplay: 2000,
                     autoplayDisableOnInteraction: false,
 
@@ -131,10 +135,12 @@ Template.swiper.onRendered(function () {
 
                 });
 
-            console.log(mySwiper.slides.length);
+            // console.log(mySwiper.slides.length);
 
-            if (mySwiper != null && mySwiper.slides.length <= 1) {
+            if (mySwiper != null && mySwiper.slides.length <= 1) { // 'mySwiper.slides.length' + 2
                 console.log("Disable slide");
+                mySwiper.stopAutoplay();
+
                 // mySwiper.params.allowSlideNext = false;
                 // mySwiper.params.allowSlidePrev = false;
                 mySwiper.params.allowSwipeToNext = false;
@@ -151,11 +157,14 @@ Template.swiper.onRendered(function () {
             }
 
 
-                console.log(mySwiper);
+            if (mySwiper != null) {
+                // console.log(mySwiper);
                 // set to displaying slide
                 // mySwiper.slideTo(Session.get("slideIndex"), 0);
                 mySwiper.slideTo(slideIndex, 0);
-            } 
+            }
+
+        } 
 
         if (mySwiper != null) {
             console.log("fin");
