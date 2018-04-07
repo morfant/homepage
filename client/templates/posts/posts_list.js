@@ -27,7 +27,11 @@ Template.postsList.helpers({
         var posts = [];
 
         if (_tag == undefined) {
-            posts = Posts.find();
+            posts = Posts.find({}, {
+                    sort: {
+                        dateBegin : -1
+                    }
+                });
         } else {
             posts = Posts.find({tag: _tag}, {
                 sort: {
