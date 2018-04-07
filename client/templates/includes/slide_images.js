@@ -72,6 +72,7 @@ Template.slideImages.helpers({
 
         console.log("slideImages setSlideImages() slideImageArr: " + slideImageArr);
         global_arr = slideImageArr;
+        console.log("global_arr");
         console.log(global_arr);
         // Session.set("slideImages", slideImageArr);
 

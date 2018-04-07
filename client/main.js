@@ -3,6 +3,7 @@ scroll_l = 0; scroll_t = 0;
 
 global_arr = [];
 isSwiperCreated = false;
+mySwiper = null;
 
 // console.log("create isSlideImagesSet session on main.js");
 // Session.set("isSlideImagesSet", false);

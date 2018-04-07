@@ -11,7 +11,7 @@ var getScrollPosition = function () {
 Template.postsList.onCreated(function() {
 
     // reset slideImages - will be made by post_item.js
-    console.log("postsList.onCreate() reset slideImages");
+    // console.log("postsList.onCreate() reset slideImages");
     // Session.set("slideImages", null);
     // global_arr = null;
     // console.log("session slideimages: " + Session.get("slideImages"));
@@ -66,7 +66,7 @@ Template.postsList.onRendered(function() {
 
 
     // made from mind_map.js
-    var tagsObj = Session.get("tagsWithNum");
+    var tagsObj = Session.get("all_tags");
 
     // clear previous tag links holder
     if (tagLinkSpan) {
@@ -84,7 +84,7 @@ Template.postsList.onRendered(function() {
         // Tag links on navbar (header.html)
         var linkText = document.createTextNode(" " + k);
         var a = document.createElement("A");
-        a.href = "/posts/category/"+k;
+        a.href = "/posts/"+k;
         a.appendChild(linkText);
         tagLinkSpan.appendChild(a); // attach to holder
     }
