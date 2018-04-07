@@ -1,26 +1,12 @@
+// import Swiper from 'swiper';
+
 var arr = [];
 var slideIndex;
-mySwiper = null;
+// mySwiper = null;
 
 Template.swiper.onCreated(function () {
 
-    // Tracker.autorun((computation) => {
-    //     if (Router.current().params.tag) {
-        // if (Session.get("isSlideImagesSet") == false) {
-        // if (Session.get("isSlideImagesSet") == true) {
-        // if (Session.equals("isSlideImagesSet", true)) {
-            console.log("swiper created!!!!!");
-            // Session.set("slideImages", arr);
-            // if (Session.get("slideIndex") == undefined) {
-            // if (slideIndex == undefined) {
-            //     Session.set("currentSlideIndex", 0);
-            // }
-        // } else {
-            // console.log("isSildeImagesSet false");
-        // }
-
-        // computation.stop();
-    // })
+    console.log("swiper created!!!!!");
 
 });
 
@@ -37,11 +23,10 @@ Template.swiper.events({
 
 });
 
-
-
 Template.swiper.onRendered(function () {
 
     console.log("swiper onRendred()");
+    console.log(mySwiper);
 
     this.autorun(() => {
         //clear previous swiper DOM
@@ -61,123 +46,77 @@ Template.swiper.onRendered(function () {
         console.log("swiper onRender() autorun");
 
 
-            // var mySwiper = null;
-            mySwiper = null;
-    
-            // arr = Session.get("slideImages");
-            arr = global_arr;
-            console.log("swiper_onRendred() get slideimages : " + arr);
+        // var mySwiper = null;
+        mySwiper = null;
 
-            if (arr != null) {
-                arr.forEach(function(obj) {
-                    console.log(obj.imglink, obj.id);
+        // arr = Session.get("slideImages");
+        arr = global_arr;
+        console.log("swiper_onRendred() get slideimages : " + arr);
 
-                    var div = document.createElement("DIV");
-                    div.className = "swiper-slide";
-                    div.style = "cursor:pointer; background-image:url(" + convertGDlink(obj.imglink) + ")";
+        if (arr != null) {
+            arr.forEach(function(obj) {
+                console.log(obj.imglink, obj.id);
 
-                    var a = document.createElement("A");
-                    a.href = "/posts/"+obj.id;
-                    a.style = "width:90%; height:100%";
-                    // console.log(a.href);
+                var div = document.createElement("DIV");
+                div.className = "swiper-slide";
+                // div.style = "cursor:pointer; background-image:url(" + convertGDlink(obj.imglink) + ")";
+                // div.style = "background-image:url(" + convertGDlink(obj.imglink) + ")";
 
-                    // Title text
-                    var p = document.createElement("P");
-                    p.className = "swiper-title-text";
-                    var t = document.createTextNode(obj.title);
-                    p.appendChild(t);
+                var a = document.createElement("A");
+                a.href = "/posts/"+obj.id;
+                a.style = "width:90%; height:100%";
+                // console.log(a.href);
 
-                    a.appendChild(p);
-                    div.appendChild(a);
-                    document.getElementById("swiper-wrapper").appendChild(div);
+                // Title text
+                var p = document.createElement("P");
+                p.className = "swiper-title-text";
+                var t = document.createTextNode(obj.title);
+                p.appendChild(t);
 
-                }, this); 
+                // a.appendChild(p);
+                // div.appendChild(a);
+                document.getElementsByClassName("swiper-wrapper")[0].appendChild(div);
+                // document.getElementById("swiper-wrapper").appendChild(div);
 
-                var setSlideIndex = function(){
-                    if (mySwiper != null) {
-                        slideIndex = mySwiper.activeIndex;
-                        console.log("slideIndex: " + slideIndex);
-                        // Session.set("slideIndex", mySwiper.activeIndex);
-                    }
-                };
-            
-
-                mySwiper = new Swiper('.swiper-container', {
-                    // Optional parameters
-                    direction: 'horizontal',
-                    // loop: true, // if this is true, you have to add 2 on 'mySwiper.slides.length' to estimate it.
-                    loop: false,
-
-                    // If we need pagination
-                    pagination: '.swiper-pagination',
-
-                    // Navigation arrows
-                    nextButton: '.swiper-button-next',
-                    prevButton: '.swiper-button-prev',
-
-                    // And if we need scrollbar
-                    // scrollbar: '.swiper-scrollbar',
-
-                    paginationClickable: true,
-                    spaceBetween: 30,
-                    centeredSlides: true,
-                    // autoplay: {delay: 5000,},
-                    autoplay: 2000,
-                    autoplayDisableOnInteraction: false,
-
-                    onSlideChangeEnd: setSlideIndex,
-                    centeredSlides: true,
-
-
-                    // setWrapperSize: true,
-                    // autoHeight: true
-
-
-                });
-
-            // console.log(mySwiper.slides.length);
-
-            if (mySwiper != null && mySwiper.slides.length <= 1) { // 'mySwiper.slides.length' + 2
-                console.log("Disable slide");
-                mySwiper.stopAutoplay();
-
-                // mySwiper.params.allowSlideNext = false;
-                // mySwiper.params.allowSlidePrev = false;
-                mySwiper.params.allowSwipeToNext = false;
-                mySwiper.params.allowSwipeToPrev = false;
-                mySwiper.params.autoplay = false;
-                mySwiper.allowTouchMove = false;
-                previousSwiper.style = "";
-                console.log(mySwiper.slides[0].className);
-                // mySwiper.slides[0].className += " " + 'swiper-no-swiping';
-                mySwiper.slides[0].className = 'swiper-no-swiping';
-                mySwiper.pagination = false;
-
-                console.log(mySwiper.slides[0].className);
-            }
-
-
-            if (mySwiper != null) {
-                // console.log(mySwiper);
-                // set to displaying slide
-                // mySwiper.slideTo(Session.get("slideIndex"), 0);
-                mySwiper.slideTo(slideIndex, 0);
-            }
-
-        } 
-
-        if (mySwiper != null) {
-            console.log("fin");
-            // Session.set("isSlideImagesSet", false);
-            // console.log("currentComputation: " + Tracker.currentCompution);
-            // console.log("computation: ");
-            // console.log(computation);
-            // computation.stop();
-            // console.log("computation stop()");
-            // console.log(computation);
+            }, this); 
         }
-
-
     });
+
+
+    var setSlideIndex = function(){
+        if (mySwiper != null) {
+            slideIndex = mySwiper.activeIndex;
+            console.log("slideIndex: " + slideIndex);
+            // Session.set("slideIndex", mySwiper.activeIndex);
+        }
+    };
+
+
+    mySwiper = new Swiper('.swiper-container', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'fracion'
+        //   clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    if (mySwiper != null && mySwiper.slides.length <= 1) { // 'mySwiper.slides.length' + 2
+        console.log("Disable slide");
+    } else {
+    }
+
+    if (mySwiper != null) {
+        mySwiper.slideTo(slideIndex, 0);
+    }
 
 });

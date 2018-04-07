@@ -1,9 +1,42 @@
 <template name="layout">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css"></script> -->
   <div class="container">
     {{> header}}
     {{> errors}}
     <div id="main" class="row-fluid">
       {{> yield}}
     </div>
+
+
   </div>
+
+    <script>
+        mySwiper = new Swiper ('.swiper-container', {
+          // Optional parameters
+          direction: 'vertical',
+          loop: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+
+          // If we need pagination
+          pagination: {
+            el: '.swiper-pagination'
+          },
+      
+          // Navigation arrows
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+      
+          // And if we need scrollbar
+          scrollbar: {
+            el: '.swiper-scrollbar',
+          },
+        })
+        </script>
+
 </template>

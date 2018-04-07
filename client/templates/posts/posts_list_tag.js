@@ -52,6 +52,7 @@ Template.postsListTag.helpers({
 Template.postsListTag.onRendered(function() {
     console.log("postsListTag rendered()");
 
+
     /*
     // Tracker.autorun((computation) => {
     //     if (Router.current().params.tag) {

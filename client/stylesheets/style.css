@@ -308,13 +308,15 @@ body {
 
 .swiper-container {
   width: 100%;
-  height: 400px;
+  /* height: 400px; */
+  height: 100%;
 }      
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
+  height: 400px;
   
   /* Center slide text vertically */
   display: -webkit-box;
@@ -331,6 +333,23 @@ body {
   align-items: center;
 }
 
+.swiper-container {
+  width: 100%;
+  height: auto;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
+.swiper-container .swiper-slide {
+  height: 300px;
+  line-height: 300px;
+}
+.swiper-container .swiper-slide:nth-child(2n) {
+  height: 500px;
+  line-height: 500px;
+}
 
 .swiper-button-prev {
 
