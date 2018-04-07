@@ -91,6 +91,9 @@ var initSwiper = function() {
 
 
     console.log("mySwiper: " + mySwiper);
+    if (mySwiper) {
+        mySwiper.destroy();
+    }
     mySwiper = new Swiper('.swiper-container', {
         spaceBetween: 30,
         centeredSlides: true,
@@ -117,7 +120,7 @@ var initSwiper = function() {
     if (mySwiper != null) {
         mySwiper.slideTo(slideIndex, 0);
     }
-    console.log(mySwiper);
+    // console.log(mySwiper);
 
 }
 
