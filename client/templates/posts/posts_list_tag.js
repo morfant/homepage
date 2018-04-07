@@ -51,6 +51,7 @@ Template.postsListTag.helpers({
 
 Template.postsListTag.onRendered(function() {
     console.log("postsListTag rendered()");
+    console.log("------------------------------------------");
 
 
     /*

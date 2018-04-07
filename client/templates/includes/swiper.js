@@ -73,8 +73,8 @@ Template.swiper.onRendered(function () {
                 var t = document.createTextNode(obj.title);
                 p.appendChild(t);
 
-                // a.appendChild(p);
-                // div.appendChild(a);
+                a.appendChild(p);
+                div.appendChild(a);
                 document.getElementsByClassName("swiper-wrapper")[0].appendChild(div);
                 // document.getElementById("swiper-wrapper").appendChild(div);
 
@@ -82,6 +82,7 @@ Template.swiper.onRendered(function () {
         }
     });
 
+    console.log("out of autorun");
 
     var setSlideIndex = function(){
         if (mySwiper != null) {
@@ -92,6 +93,7 @@ Template.swiper.onRendered(function () {
     };
 
 
+    console.log("mySwiper: " + mySwiper);
     mySwiper = new Swiper('.swiper-container', {
         spaceBetween: 30,
         centeredSlides: true,
