@@ -1,4 +1,3 @@
-var posts = [];
 var tagLinkSpan;
 
 var getScrollPosition = function () {
@@ -23,13 +22,19 @@ Template.postsList.onCreated(function() {
 
 
 Template.postsList.helpers({
-    posts: function () {
-        posts = Posts.find({}, {
-            sort: {
-                dateBegin : -1 //newer one will display on top.
-            }
-        });
+    posts: function (_tag) {
 
+        var posts = [];
+
+        if (_tag == undefined) {
+            posts = Posts.find();
+        } else {
+            posts = Posts.find({tag: _tag}, {
+                sort: {
+                    dateBegin : -1 //newer one will display on top.
+                }
+            });
+        }
         return posts;
     },
 
@@ -38,32 +43,6 @@ Template.postsList.helpers({
 
 Template.postsList.onRendered(function() {
     console.log("posts_list rendered()");
-
-    /*
-    var postsArr = posts.fetch();
-    var slideImageArr = [];
-
-    postsArr.forEach(function(obj) {
-        var l = obj.imageLink_0;
-        var i = obj._id;
-        var t = obj.title;
-        // console.log(l, i, t);
-        if (l) {
-            var a = {imglink: l, id: i, title: t};
-            slideImageArr.push(a);
-        }
-    }, this);
-
-    // var a = { imglink, id, title};
-    // arr.push(a);
-    console.log("posts_list onRendered() slideImageArr: " + slideImageArr);
-    // Session.set("slideImages", slideImageArr);
-    global_arr = slideImageArr;
-    // Session.set("isSwiperSet", false);
-    Session.set("isSlideImagesSet", true);
-    console.log("isSlideImages true!");
-    */
-
 
     // made from mind_map.js
     var tagsObj = Session.get("all_tags");
@@ -91,8 +70,6 @@ Template.postsList.onRendered(function() {
 
     console.log("posts_list onRendered() make links");
     document.getElementById("tag-links").appendChild(tagLinkSpan);
-    console.log("---------------------------********");
-
 
 
     // restore previous scroll position
