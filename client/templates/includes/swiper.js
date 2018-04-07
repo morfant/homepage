@@ -26,7 +26,7 @@ Template.swiper.events({
 Template.swiper.onRendered(function () {
 
     console.log("swiper onRendred()");
-    console.log(mySwiper);
+    // console.log(mySwiper);
 
     this.autorun(() => {
         //clear previous swiper DOM
@@ -59,7 +59,7 @@ Template.swiper.onRendered(function () {
 
                 var div = document.createElement("DIV");
                 div.className = "swiper-slide";
-                // div.style = "cursor:pointer; background-image:url(" + convertGDlink(obj.imglink) + ")";
+                div.style = "cursor:pointer; background-image:url(" + convertGDlink(obj.imglink) + ")";
                 // div.style = "background-image:url(" + convertGDlink(obj.imglink) + ")";
 
                 var a = document.createElement("A");
