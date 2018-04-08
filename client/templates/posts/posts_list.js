@@ -67,7 +67,7 @@ Template.postsList.onRendered(function() {
         // Tag links on navbar (header.html)
         var linkText = document.createTextNode(" " + k);
         var a = document.createElement("A");
-        a.href = "/"+k; // link on the tag links (on header bar)
+        a.href = PATH_postList + k; // link on the tag links (on header bar)
         a.appendChild(linkText);
         tagLinkSpan.appendChild(a); // attach to holder
     }

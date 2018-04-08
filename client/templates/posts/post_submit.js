@@ -1,4 +1,5 @@
 Template.postSubmit.created = function () {
+    console.log("postSubmit created()")
     Session.set('postSubmitErrors', {});
 }
 
