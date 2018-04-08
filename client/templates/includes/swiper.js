@@ -58,7 +58,7 @@ var addSliders = function() {
             // div.style = "background-image:url(" + convertGDlink(obj.imglink) + ")";
 
             var a = document.createElement("A");
-            a.href = "/posts/"+obj.id;
+            a.href = "/posts/"+obj.id; // link on the slide image
             a.style = "width:90%; height:100%";
             // console.log(a.href);
 

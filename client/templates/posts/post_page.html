@@ -9,7 +9,6 @@
             <div class="text">
 
 
-                <!--
                 {{checkLink}}
 
                 {{#if getHasAudio}}
@@ -18,7 +17,6 @@
                         <source src="{{audioLink}}" type="audio/ogg"> Your browser does not support the audio element.
                     </audio>
                 {{/if}}
-                -->
 
                 {{title}}
                 <br><br>
@@ -26,14 +24,7 @@
                 <!-- Display text -->
                 <p>{{{htmlText}}}</p> <!-- replace some characters to display as html -->
 
-                <br><br>
 
-                {{#if tag}}
-                <p>Tags</p>
-                <p>{{tag}}</p>
-                {{/if}}
-
-                <!--
                 {{#if getHasImage 0}}
                 <img class="post-image" src="{{imageLink 0}}" alt="{{imageName}}" />
                 {{/if}}
@@ -56,8 +47,19 @@
                         Your browser does not support the video tag.
                     </video>
                 {{/if}}
-                -->
-                
+
+
+                <br><br>
+                <br><br>
+
+
+                <!-- TODO: make tag as link itself -->
+                {{#if tag}}
+                <p>Tags: {{tag}}</p>
+                <!-- <p>{{tag}}</p> -->
+                {{/if}}
+
+               
 
             </div>
 

@@ -32,12 +32,13 @@ Template.postPage.helpers({
     },
 
     checkLink: function() {
+        post = Template.currentData();
 
         if (post != null) {
 
             //img
             var urls = [post.imageLink_0, post.imageLink_1, post.imageLink_2];
-            for (var i = 0; i < 3; i++) {
+            for (var i = 0; i < IMAGE_MAX_NUM; i++) {
                 if (urls[i] != "") { hasImage[i] = true; }
             }
     
@@ -56,6 +57,7 @@ Template.postPage.helpers({
         }
 
         // console.log(hasAudio);
+        // console.log(hasImage)
 
 
     },
