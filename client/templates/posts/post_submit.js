@@ -24,7 +24,7 @@ Template.postSubmit.events({
         var tag = $(e.target).find('[name=tag]').val();
         // console.log(tag);
         tag = tag.replace(/\s+/gi, '').split(','); // 공백 제거, ','를 기준으로 나눔
-        // console.log(tag);
+        console.log(tag);
 
         // '#' 제거
         if (tag != null && tag.length) {
@@ -33,10 +33,12 @@ Template.postSubmit.events({
                     var regex = /#+/gi;
                     var rt = t.replace(regex, '');
                     tags.push(rt);
+                } else {
+                    tags.push(t);
                 }
             });
         }
-        // console.log(tags);
+        console.log(tags);
 
         var post = {
             title: $(e.target).find('[name=title]').val(),

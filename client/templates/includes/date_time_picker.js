@@ -1,4 +1,4 @@
-var isEdit = false;
+var isEdit = false; // set true if it is on '/edit'
 
 Template.dateTimePicker.onCreated(function() {
     Session.set("date_begin", "");

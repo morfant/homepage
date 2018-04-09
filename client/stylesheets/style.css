@@ -129,9 +129,16 @@ body {
 }
 
 .back-to-list {
+  display: inline-block;
   margin: 100px;
 }
 
+.back-to-filtered-list {
+  display: inline-block;
+  text-align: right;
+  /* margin: 100px; */
+  /* padding-left:5em; */
+}
 .post .post-content .text{
   font-size: 20px;
   font-family: 'Iropke Batang', serif; 

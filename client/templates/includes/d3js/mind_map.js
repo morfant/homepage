@@ -26,6 +26,8 @@ var getPostsByTag = function(_tag) {
 
 var posts2postsObj = function(_posts) {
 
+    console.log(_posts)
+
     var posts = [];
     var tags = [];
     var tagsObj = {};
@@ -38,7 +40,7 @@ var posts2postsObj = function(_posts) {
         // console.log(post.tag);
         // tag = post.tag.replace(/\s+/gi, '').split(','); // 공백 제거, ','를 기준으로 나눔
         var tag = post.tag;
-        // console.log(tag);
+        console.log(tag);
 
         if (tag != null && tag.length) {
             tag.forEach(function (t) {
@@ -65,6 +67,7 @@ var posts2postsObj = function(_posts) {
             tagsObj[item]++;
         }
     });
+    console.log(tagsObj)
 
     return tagsObj;
 

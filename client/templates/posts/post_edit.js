@@ -34,6 +34,8 @@ Template.postEdit.events({
                     var regex = /#+/gi;
                     var rt = t.replace(regex, '');
                     tags.push(rt);
+                } else {
+                    tags.push(t);
                 }
             });
         }
@@ -54,7 +56,7 @@ Template.postEdit.events({
             imageLink_2: $(e.target).find('[name=image-link-2]').val(),
             videoLink: $(e.target).find('[name=video-link]').val(),
             // imageName:  $(e.target).find('[name=imageName]').val(),
-            tag: tags // Array
+            tag: tags
         };
 
 
