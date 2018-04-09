@@ -4,8 +4,20 @@
         <div> {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}} </div>
 
         <div class="post-content">
-            <a class="back-to-list" href="{{urlFor 'postsList' tag=""}}">Back</a><br>
-            <a class="back-to-filtered-list" href="{{pathFor 'postsList'}}">{{tag}}</a>
+            <span>
+                <a class="back-to-list" href="{{pathFor 'postsList' tag=""}}">Back</a>
+
+
+                {{#if this.tag}}
+                   ( 
+                    {{#each t in this.tag}}
+                        <a class="back-to-filtered-list" href="{{pathFor 'postsList' tag=t }}">#{{t}}</a>
+                    {{/each}}
+                   )
+                {{/if}}
+
+
+            </span>
 
             <div class="text">
 

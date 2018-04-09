@@ -130,7 +130,7 @@ body {
 
 .back-to-list {
   display: inline-block;
-  margin: 100px;
+  margin-left: 100px;
 }
 
 .back-to-filtered-list {
