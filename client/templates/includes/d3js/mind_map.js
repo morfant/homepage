@@ -2,7 +2,7 @@ Session.set('tagsWithNum', '');
 
 
 Session.set('all_tags', "");
-Session.set('filtered_tags', "");
+// Session.set('filtered_tags', "");
 
 
 var getPostsByTag = function(_tag) {
@@ -26,7 +26,7 @@ var getPostsByTag = function(_tag) {
 
 var posts2postsObj = function(_posts) {
 
-    console.log(_posts)
+    // console.log(_posts)
 
     var posts = [];
     var tags = [];
@@ -40,7 +40,7 @@ var posts2postsObj = function(_posts) {
         // console.log(post.tag);
         // tag = post.tag.replace(/\s+/gi, '').split(','); // 공백 제거, ','를 기준으로 나눔
         var tag = post.tag;
-        console.log(tag);
+        // console.log(tag);
 
         if (tag != null && tag.length) {
             tag.forEach(function (t) {
@@ -67,7 +67,7 @@ var posts2postsObj = function(_posts) {
             tagsObj[item]++;
         }
     });
-    console.log(tagsObj)
+    // console.log(tagsObj)
 
     return tagsObj;
 
@@ -77,7 +77,7 @@ Template.mindMap.helpers({
 
     filteredTagList: function(_tag) {
 
-        console.log("filteredTagList()");
+        // console.log("filteredTagList()");
         var posts = [];
         posts = getPostsByTag(_tag)
         Session.set('filtered_tags', posts2postsObj(posts));
@@ -85,7 +85,7 @@ Template.mindMap.helpers({
     },
     makeTagList: function() {
 
-        console.log("makeTagList()");
+        // console.log("makeTagList()");
         var posts = [];
         posts = getPostsByTag();
         Session.set('all_tags', posts2postsObj(posts));
@@ -97,7 +97,7 @@ Template.mindMap.helpers({
 
 
 Template.mindMap.created = function () {
-    console.log("mindMap created()");
+    // console.log("mindMap created()");
 
 }
 

@@ -3,7 +3,7 @@ mySwiper = null;
 
 /* functions */
 var initSwiper = function() {
-    console.log("---initSwiper()");
+    // console.log("---initSwiper()");
 
     // console.log("mySwiper: " + mySwiper);
     if (mySwiper) {
@@ -31,7 +31,7 @@ var initSwiper = function() {
 
 
 var delSwiper = function(){
-    console.log("---delSwiper()");
+    // console.log("---delSwiper()");
 
     // clear previous swiper DOM
     var previousSwiper = document.getElementsByClassName("swiper-wrapper");
@@ -43,7 +43,7 @@ var delSwiper = function(){
 
 
 var addSliders = function() {
-    console.log("---addSliders()");
+    // console.log("---addSliders()");
         
     arr = global_arr;
     // console.log("addSliders() get slideimages : " + arr);
@@ -82,14 +82,14 @@ var addSliders = function() {
 
 
 Template.swiper.onCreated(function () {
-    console.log("swiper created!!!!!");
+    // console.log("swiper created!!!!!");
 });
 
 
 
 Template.swiper.helpers({
     getTag: function (_tag) {
-        console.log(_tag);
+        // console.log(_tag);
     },
 });
 
@@ -102,7 +102,7 @@ Template.swiper.events({
 Template.swiper.onRendered(function () {
 
     this.autorun(function() {
-        console.log("swiper onRendred()");
+        // console.log("swiper onRendred()");
         Template.currentData();
 
         // keep running order : mySwiper has to be instanciated first.

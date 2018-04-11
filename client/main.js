@@ -6,5 +6,7 @@ isSwiperCreated = false;
 IMAGE_MAX_NUM = 3;
 
 PATH_postList = "/posts/";
+global_url = undefined;
+global_prevYear = undefined;
 // console.log("create isSlideImagesSet session on main.js");
 // Session.set("isSlideImagesSet", false);

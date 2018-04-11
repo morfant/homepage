@@ -22,8 +22,11 @@ Template.postSubmit.events({
         // Handle tag
         var tags = [];
         var tag = $(e.target).find('[name=tag]').val();
-        // console.log(tag);
-        tag = tag.replace(/\s+/gi, '').split(','); // 공백 제거, ','를 기준으로 나눔
+        console.log(tag);
+        // if (tag != "") {
+        if (/\S/.test(tag)) { // if there's at least one character of non whitespace
+            tag = tag.replace(/\s+/gi, '').split(','); // 공백 제거, ','를 기준으로 나눔
+        }
         console.log(tag);
 
         // '#' 제거

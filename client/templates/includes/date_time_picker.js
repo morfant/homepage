@@ -1,6 +1,7 @@
 var isEdit = false; // set true if it is on '/edit'
 
 Template.dateTimePicker.onCreated(function() {
+    console.log("DateTimePicker()");
     Session.set("date_begin", "");
     Session.set("date_end", "");
 
@@ -11,6 +12,8 @@ Template.dateTimePicker.onCreated(function() {
         isEdit = false; // not edit, but submit.
     }
 
+
+    console.log(moment());
 
 });
 
@@ -25,10 +28,12 @@ Template.dateTimePicker.onRendered(function() {
 
     if (isEdit){
         this.$('.datetimepicker_begin').datetimepicker({
+            useCurrent: true,
             format: 'YYYY-MM-DD',
             date: this.data.dateBegin,
         });
         this.$('.datetimepicker_end').datetimepicker({
+            useCurrent: true,
             format: 'YYYY-MM-DD',
             date: this.data.dateEnd,
         });
@@ -36,11 +41,13 @@ Template.dateTimePicker.onRendered(function() {
         this.$('.datetimepicker_begin').datetimepicker({
             useCurrent: true,
             format: 'YYYY-MM-DD',
-            defaultDate: moment().day() 
+            defaultDate: moment() 
         });
         this.$('.datetimepicker_end').datetimepicker({
-            useCurrent: false,
-            format: 'YYYY-MM-DD'
+            useCurrent: true,
+            format: 'YYYY-MM-DD',
+            defaultDate: moment() 
+
         });
     } 
 

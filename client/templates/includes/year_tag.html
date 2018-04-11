@@ -1,12 +1,19 @@
 <template name="yearTag">
     <!-- {{#if hasNewYear}} -->
-        {{#if getYear dateBegin}}
-        <br><br>
+    <!-- {{ isNewUrl }} -->
 
+    {{ isNewYear dateBegin }}
+    <div id="yt"></div>
+
+    <!-- {{#if isNewYear dateBegin}} -->
+
+        <!-- <br><br>
         <div class="post">
             <div class="post-content">
                 <h3><a id="year-tag" href="">{{year}}</a></h3>
             </div>
-        </div>
-    {{/if}}
+        </div> -->
+
+    <!-- {{/if}} -->
+
 </template>

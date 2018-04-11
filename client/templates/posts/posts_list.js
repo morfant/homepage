@@ -36,9 +36,11 @@ Template.postsList.helpers({
             posts = Posts.find({tag: _tag}, {
                 sort: {
                     dateBegin : -1 //newer one will display on top.
+                    // dateBegin : 1 //newer one will display on top.
                 }
             });
         }
+        console.log(posts.fetch());
         return posts;
     },
 
@@ -46,7 +48,7 @@ Template.postsList.helpers({
 
 
 Template.postsList.onRendered(function() {
-    console.log("posts_list rendered()");
+    // console.log("posts_list rendered()");
 
     // made from mind_map.js
     var tagsObj = Session.get("all_tags");
@@ -61,8 +63,8 @@ Template.postsList.onRendered(function() {
     tagLinkSpan = document.createElement("SPAN");
     
     for (k in tagsObj) {
-        console.log(k); // key
-        console.log(tagsObj[k]); // value
+        // console.log(k); // key
+        // console.log(tagsObj[k]); // value
 
         // Tag links on navbar (header.html)
         var linkText = document.createTextNode(" " + k);
@@ -72,7 +74,7 @@ Template.postsList.onRendered(function() {
         tagLinkSpan.appendChild(a); // attach to holder
     }
 
-    console.log("posts_list onRendered() make links");
+    // console.log("posts_list onRendered() make links");
     document.getElementById("tag-links").appendChild(tagLinkSpan);
 
 
