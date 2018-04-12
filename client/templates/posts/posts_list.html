@@ -5,12 +5,14 @@
     <div> {{> swiper}} </div>
 
     <div class="posts">
-        {{#each posts tag}}
+        <!-- get posts length to check all post items are rendered -->
+        {{getLength this}}
 
-            <!-- {{> yearTag post=this}} -->
-            {{> yearTag}}
-            {{> postItem}}
+        {{#each post in this}}
+            <!-- {{> yearTag}} -->
+            {{> postItem post}}
         {{/each}}
+
     </div>
 
 </template>

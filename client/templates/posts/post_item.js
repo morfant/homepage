@@ -43,7 +43,10 @@ Template.postItem.helpers({
         a.href = this.url;
         return a.hostname;
     },
-
+    getYear: function() {
+        var date = moment(this.dateBegin).format('YYYYMMDD')
+        return date;
+    },
     getDate: function() {
 
         var db = moment(this.dateBegin).format('MMM D');
@@ -87,5 +90,24 @@ Template.postItem.helpers({
   //   var date = this.dateEnd;
   //   return moment(date).format('MMM, DD');
   // }
+
+});
+
+
+Template.postItem.onRendered(function () {
+
+    this.autorun(() => {
+        console.log("post_item rendered");
+
+        global_renderedLength = global_renderedLength + 1;
+        console.log(global_renderedLength);
+        // console.log(Session.get('postLength'));
+
+        if (global_renderedLength == Session.get('postLength')) {
+            console.log("All posts rendered!!");
+            Session.set('postItemAllRendered', true);
+        };
+
+    });
 
 });

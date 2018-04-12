@@ -8,14 +8,14 @@ Template.yearTag.onCreated(function() {
     // this.autorun(function() {
         console.log("----------------------------------------");
         console.log("yearTag onCreated()");
-    //     Iron.Location.get().path;
+        // console.log(Template.instance())
+        // console.log(Blaze.getData(this.view));
 
-    //     console.log(this);
-        // console.log(Template.currentData());
-    //     // console.log(Router.current().route.path(this));
-    //     // console.log(Iron.Location.get().path);
+
 
     // })
+
+
 
 
 
@@ -31,6 +31,11 @@ Template.yearTag.onCreated(function() {
 
 
 Template.yearTag.helpers({
+    d: function(data) {
+        console.log("d()")
+        console.log(data);
+
+    },
     isNewUrl: function() {
         console.log("isNewUrl()");
         if (global_url != Iron.Location.get().path) {
@@ -57,24 +62,24 @@ Template.yearTag.helpers({
              
         
         if (y != global_prevYear) {
-            console.log("global_prevYear: " + global_prevYear);
+            // console.log("global_prevYear: " + global_prevYear);
             global_prevYear = y;
             console.log("isNewYear: true");
             console.log("TITLE: " + Template.currentData().title);
 
             // makeYearTag(y);
             // Session.set('newYear', true);
-            isn = true;
+            // isn = true;
 
-            // return true;
+            return true;
 
         } else {
             console.log("isNewYear: false");
             console.log("TITLE: " + Template.currentData().title);
             // console.log(Template.currentData().title);
             // Session.set('newYear', false);
-            isn = false;
-            // return false;
+            // isn = false;
+            return false;
         }
     },
 });
@@ -134,33 +139,27 @@ var makeYearTag = function(year) {
 
 
 Template.yearTag.onRendered(function() {
-    console.log("yearTag ONRENDERED()");
+    // console.log("yearTag ONRENDERED()");
 
 
-    // clear previous tag links holder
-    // if (tagLinkSpan) {
-    //     tagLinkSpan.outerHTML = "";
-    //     delete tagLinkSpan;
+    // console.log(Blaze.getData(this.view));
+    // if (isn == true) {
+
+    //     var div = document.createElement("DIV");
+    //     div.className = "post";
+    //     var div_2 = document.createElement("DIV");
+    //     div_2.className = "post-content";
+    //     var a = document.createElement("A");
+    //     a.id = "year-tag";
+    //     var h3 = document.createElement("H3");
+    //     var t = document.createTextNode(global_prevYear);
+    //     h3.appendChild(t);
+    //     h3.append(a);
+    //     div_2.appendChild(h3);
+    //     div.appendChild(div_2);
+    //     // console.log("posts_list onRendered() make links");
+    //     document.getElementById("yt").appendChild(div);
     // }
-
-    // if (Session.get('newYear') == true) {
-    if (isn == true) {
-
-        var div = document.createElement("DIV");
-        div.className = "post";
-        var div_2 = document.createElement("DIV");
-        div_2.className = "post-content";
-        var a = document.createElement("A");
-        a.id = "year-tag";
-        var h3 = document.createElement("H3");
-        var t = document.createTextNode(global_prevYear);
-        h3.appendChild(t);
-        h3.append(a);
-        div_2.appendChild(h3);
-        div.appendChild(div_2);
-        // console.log("posts_list onRendered() make links");
-        document.getElementById("yt").appendChild(div);
-    }
 
 
 });
@@ -173,4 +172,11 @@ Template.yearTag.events({
     }
 });
 
+
+
+
+Template.yearTag.onDestroyed(function() {
+    console.log("yearTag destroyed");
+    // console.log(this.parent.data);
+});
 
