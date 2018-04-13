@@ -1,18 +1,18 @@
 <template name="postsList">
 
-    <div> {{> mindMap}} </div>
-    <div> {{> slideImages}} </div>
+    {{> mindMap}}
+    {{> slideImages }}
+
     <div> {{> swiper}} </div>
 
-    <div class="posts">
-        <!-- get posts length to check all post items are rendered -->
-        {{getLength this}}
+    <!-- get posts length to check all post items are rendered -->
+    {{getLength}}
 
+    <div class="posts">
         {{#each post in this}}
             <!-- {{> yearTag}} -->
             {{> postItem post}}
         {{/each}}
-
     </div>
 
 </template>

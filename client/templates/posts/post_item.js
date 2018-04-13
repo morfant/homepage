@@ -44,6 +44,7 @@ Template.postItem.helpers({
         return a.hostname;
     },
     getYear: function() {
+        // console.log(this);
         var date = moment(this.dateBegin).format('YYYYMMDD')
         return date;
     },

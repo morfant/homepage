@@ -1,5 +1,6 @@
 var tagLinkSpan;
 var years_arr = [];
+var posts = [];
 
 Session.set('postLength', 0);
 Session.set('postItemAllRendered', false);
@@ -27,9 +28,14 @@ Template.postsList.onCreated(function() {
 
 
 Template.postsList.helpers({
-    getLength: function (data) {
+    getLength: function () {
+    // getLength: function (data) {
+        console.log("getLength");
+        // console.log(posts)
+        // var data = posts; // predefined posts
         // console.log(data)
-        let len = data.length;
+        let len = this.length;
+        console.log(len)
         Session.set('postLength', len);
     },
     prepareYearTag: function(data){
@@ -62,26 +68,30 @@ Template.postsList.helpers({
 
     },
     posts: function (_tag) {
+        console.log(_tag);
 
-        var posts = [];
+        // posts is global on this file
 
         if (_tag == undefined) {
             posts = Posts.find({}, {
                     sort: {
                         dateBegin : -1
                     }
-                });
+                }).fetch();
         } else {
             posts = Posts.find({tag: _tag}, {
                 sort: {
                     dateBegin : -1 //newer one will display on top.
                     // dateBegin : 1 //newer one will display on top.
                 }
-            });
+            }).fetch();
         }
-        console.log(posts.fetch());
-        return posts;
+        // console.log(posts);
     },
+    getPosts: function() {
+        console.log(posts);
+        return posts;
+    }
 
 });
 
@@ -101,7 +111,7 @@ Template.postsList.onRendered(function() {
     // Make new tag links holder
     tagLinkSpan = document.createElement("SPAN");
     
-    // for desktop view
+    // --for desktop view
     for (k in tagsObj) {
         // console.log(k); // key
         // console.log(tagsObj[k]); // value
@@ -114,9 +124,11 @@ Template.postsList.onRendered(function() {
         tagLinkSpan.appendChild(a); // attach to holder
     }
 
-    // <ul class="nav navbar-nav"> <li><a href="mailto:giy.hands@gmail.com">giy.hands@gmail.com</a> </li></ul>
+    // console.log("posts_list onRendered() make links");
+    document.getElementById("tag-links").appendChild(tagLinkSpan);
 
-    // for mobile view
+
+    // --for mobile view
     var collapsedButton = document.getElementById("navigation");
 
     for (k in tagsObj) {
@@ -132,11 +144,6 @@ Template.postsList.onRendered(function() {
         collapsedButton.appendChild(ul);
     }
 
-
-
-
-    // console.log("posts_list onRendered() make links");
-    document.getElementById("tag-links").appendChild(tagLinkSpan);
 
 
 
@@ -225,6 +232,6 @@ Template.postsList.onDestroyed(function() {
     $(document).off("scroll");
 
     // var collapsedButton = document.getElementById("navigation");
-    
+
     $('.nav.navbar-nav').remove();
 });
