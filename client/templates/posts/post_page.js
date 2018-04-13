@@ -12,8 +12,8 @@ Template.postPage.onCreated(function () {
 
 Template.postPage.helpers({
     tags: function() {
-        console.log(this.tag)
-        console.log((this.tag).length);
+        // console.log(this.tag)
+        // console.log((this.tag).length);
         return (this.tag).length;
 
     },

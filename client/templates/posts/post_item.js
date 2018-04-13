@@ -97,10 +97,10 @@ Template.postItem.helpers({
 Template.postItem.onRendered(function () {
 
     this.autorun(() => {
-        console.log("post_item rendered");
+        // console.log("post_item rendered");
 
         global_renderedLength = global_renderedLength + 1;
-        console.log(global_renderedLength);
+        // console.log(global_renderedLength);
         // console.log(Session.get('postLength'));
 
         if (global_renderedLength == Session.get('postLength')) {

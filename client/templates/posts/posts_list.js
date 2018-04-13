@@ -28,7 +28,7 @@ Template.postsList.onCreated(function() {
 
 Template.postsList.helpers({
     getLength: function (data) {
-        console.log(data)
+        // console.log(data)
         let len = data.length;
         Session.set('postLength', len);
     },
@@ -101,6 +101,7 @@ Template.postsList.onRendered(function() {
     // Make new tag links holder
     tagLinkSpan = document.createElement("SPAN");
     
+    // for desktop view
     for (k in tagsObj) {
         // console.log(k); // key
         // console.log(tagsObj[k]); // value
@@ -112,6 +113,27 @@ Template.postsList.onRendered(function() {
         a.appendChild(linkText);
         tagLinkSpan.appendChild(a); // attach to holder
     }
+
+    // <ul class="nav navbar-nav"> <li><a href="mailto:giy.hands@gmail.com">giy.hands@gmail.com</a> </li></ul>
+
+    // for mobile view
+    var collapsedButton = document.getElementById("navigation");
+
+    for (k in tagsObj) {
+        var ul = document.createElement('ul');
+        ul.className = "nav navbar-nav";
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = PATH_postList + k; // link on the tag links (on header bar)
+        var linkText = document.createTextNode(" " + k);
+        a.appendChild(linkText);
+        li.appendChild(a);
+        ul.appendChild(li);
+        collapsedButton.appendChild(ul);
+    }
+
+
+
 
     // console.log("posts_list onRendered() make links");
     document.getElementById("tag-links").appendChild(tagLinkSpan);
@@ -144,6 +166,8 @@ Template.postsList.onRendered(function() {
 
             // remove previous year tags
             $('.year-tag').remove();
+            $('.before-year-tag').remove();
+
 
             for(date of dateOrder) {
 
@@ -171,6 +195,9 @@ Template.postsList.onRendered(function() {
                     // console.log(targetToBefore)
                     // console.log(holder);
                     // console.log(yearTag)
+                    var br = document.createElement('br'); // divide pages
+                    br.className = 'before-year-tag';
+                    holder.insertBefore(br, targetToBefore);
                     holder.insertBefore(yearTag, targetToBefore);
                     // console.log(holder)
 
@@ -192,8 +219,12 @@ Template.postsList.onRendered(function() {
 
 
 Template.postsList.onDestroyed(function() {
-    console.log("ON DESTROYED");
+    // console.log("ON DESTROYED");
 
     // detach handler
     $(document).off("scroll");
+
+    // var collapsedButton = document.getElementById("navigation");
+    
+    $('.nav.navbar-nav').remove();
 });

@@ -415,3 +415,49 @@ a:hover {
 a:active {
   color: black;
 } 
+
+
+
+@media(max-width:768px) {
+  .posts {
+    display: none;
+  }
+  #email {
+    display: none;
+  }
+  /* .navbar-toggle collapsed {
+    display: none;
+  } */
+
+  #temp-block {
+    display: none;
+  }
+
+  #tag-links {
+    display: none;
+  }
+}
+
+@media(min-width:768px) {
+
+  #navigation {
+    /* visibility: hidden !important; */
+    display: none !important;
+    opacity: 0.5;
+  }
+
+  .email-mobile, #email-mobile {
+    display: none;
+  }
+/* 
+  #email-mobile {
+    padding: 15px 15px;
+  } */
+
+ }
+
+ #email-mobile {
+   padding: 15px 15px;
+ }
+
+
