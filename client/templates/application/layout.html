@@ -3,11 +3,16 @@
 
   <!-- <div class="container-fluid col-xs-12"> -->
   <div class="container">
-    {{> header}}
-    {{> errors}}
-    <div id="main" class="row-fluid">
-      {{> yield}}
-    </div>
+
+    {{#if onGate}}
+      {{> frontGate}}
+    {{else}}
+      {{> header}}
+      {{> errors}}
+      <div id="main" class="row-fluid">
+        {{> yield}}
+      </div>
+    {{/if}}
 
 
   </div>
