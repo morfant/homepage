@@ -1,3 +1,4 @@
 node_modules/
 .deploy/ps.js
 .deploy/mup.json
+mup.js
