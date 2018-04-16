@@ -18,7 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.3.1            # Server-side component of the `meteor shell` command
 
 underscore@1.0.10
-mizzao:bootstrap-3
 iron:router
 sacha:spin
 session@1.1.7
@@ -30,3 +29,4 @@ tsega:bootstrap3-datetimepicker
 momentjs:moment
 d3js:d3
 kadira:blaze-layout
+twbs:bootstrap

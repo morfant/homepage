@@ -3,6 +3,10 @@
         <span>
             <h2>Gangil Yi</h2>
             <!-- <div id="space"></div> -->
+
+                {{#if currentUser}}
+                <a href="{{pathFor 'frontSetting'}}">Change Gate Image</a>
+                {{/if}}
         </span>
     </div>
 
