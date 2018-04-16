@@ -469,20 +469,19 @@ a:active {
    border: 2px dashed #f69c55;
  } */
 
-#frontGate
-{
+div #front-gate {
   align-items: center;
   justify-content: center;
   text-align: center;
   display: flex;
 }
 
-#frontGate span {
+div #front-gate span {
   margin: auto; 
 }
 
-#frontGate-image {
-  padding: 130px 0px;
+#front-gate-image {
+  padding: 0px 0px;
   display: block;
   margin-left: auto;
   margin-right: auto;

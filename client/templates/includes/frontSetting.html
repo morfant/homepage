@@ -1,11 +1,11 @@
 <template name="frontSetting">
 
   <form class="main form">
-        <div class="form-group {{errorClass 'gate-image'}}">
-            <label class="control-label" for="title">Background image google drive link</label>
+        <div class="form-group {{errorClass 'front-image'}}">
+            <label class="control-label" for="front-image">Background image google drive link</label>
             <div class="controls">
-                <input name="title" id="title" type="text" value="" placeholder="https://drive.google.com/open?id=1nFd4_LexdGDkVH9TZpShec0GmNblNlIs" class="form-control" />
-                <span class="help-block">{{errorMessage 'gate-image'}}</span>
+                <input name="front-image" id="front-image-link" type="text" value="{{getFrontImageLink}}" placeholder="https://drive.google.com/open?id=1nFd4_LexdGDkVH9TZpShec0GmNblNlIs" class="form-control" />
+                <span class="help-block">{{errorMessage 'front-image'}}</span>
             </div>
         </div>
 

@@ -1,18 +1,18 @@
 <template name="frontGate">
-    <div id="frontGate">
+    <div id="front-gate">
         <span>
+            <br> <br> <br>
             <h2>Gangil Yi</h2>
-            <!-- <div id="space"></div> -->
-
-                {{#if currentUser}}
+            {{#if currentUser}}
                 <a href="{{pathFor 'frontSetting'}}">Change Gate Image</a>
-                {{/if}}
+            {{/if}}
         </span>
     </div>
 
     <div>
+        <br> <br> <br> <br> <br> <br> <br>
         <a href="{{pathFor route='postsList'}}">
-            <img id="frontGate-image" src="{{convertImgLink "https://drive.google.com/open?id=1nFd4_LexdGDkVH9TZpShec0GmNblNlIs"}}" alt="">
+            <img id="front-gate-image" src="{{getImageLink}}" alt="">
         </a>
     </div>
 
