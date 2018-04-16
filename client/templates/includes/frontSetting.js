@@ -45,9 +45,9 @@ Template.frontSetting.events({
         Meteor.call('updateSetting', settings, function (error, result) { // display the error to the user and abort 
             if (error) return throwError(error.reason);
 
-            console.log(result);
-            // Router.go('postPage', {
-            // });
+            // console.log(result);
+            Router.go('frontGate', {
+            });
 
         });
 

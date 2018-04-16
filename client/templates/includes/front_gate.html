@@ -2,7 +2,8 @@
     <div id="front-gate">
         <span>
             <br> <br> <br>
-            <h2>Gangil Yi</h2>
+            <a href="{{pathFor route='postsList'}}"> <h2>Gangil Yi</h2> </a>
+
             {{#if currentUser}}
                 <a href="{{pathFor 'frontSetting'}}">Change Gate Image</a>
             {{/if}}

@@ -4,7 +4,7 @@
         <div> {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}} </div>
 
         <div class="post-content">
-            <span>
+            <span id="back-list">
                 <a class="back-to-list" href="{{pathFor 'postsList' tag=""}}">Back</a>
 
                 <!-- this means data context (a post in this case) -->
@@ -25,7 +25,7 @@
                 {{checkLink}}
 
                 {{#if getHasAudio}}
-                    <audio class="audio" controls>
+                    <audio class="post-audio" controls>
                         <source src="{{audioLink}}" type="audio/mpeg">
                         <source src="{{audioLink}}" type="audio/ogg"> Your browser does not support the audio element.
                     </audio>
@@ -54,7 +54,7 @@
                 {{#if getHasVideo}}
                 <br><br>
 
-                    <video class="video" controls>
+                    <video class="post-video" controls>
                         <source src="{{videoLink}}" type="video/mp4">
                         <source src="{{videoLink}}" type="video/ogg">
                         Your browser does not support the video tag.

@@ -10,7 +10,7 @@ Template.registerHelper("addSlideImage", function (imglink, id, title) {
     // var arr = [];
 
     arr = Session.get("slideImages");
-    console.log("addSlideImage: " + arr);
+    // console.log("addSlideImage: " + arr);
 
     if (imglink != "") {
 
@@ -105,7 +105,7 @@ Template.postItem.onRendered(function () {
         // console.log(Session.get('postLength'));
 
         if (global_renderedLength == Session.get('postLength')) {
-            console.log("All posts rendered!!");
+            // console.log("All posts rendered!!");
             Session.set('postItemAllRendered', true);
         };
 

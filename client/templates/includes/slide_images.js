@@ -1,13 +1,13 @@
 Template.slideImages.created = function () {
     
-    console.log("slideImages() create");
+    // console.log("slideImages() create");
 
 };
 
 Template.slideImages.helpers({
 
     setSlideImages: function () {
-        console.log("setSlideImages()");
+        // console.log("setSlideImages()");
         // console.log(Template.currentData());
 
         var postsArr = this;

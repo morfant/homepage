@@ -26,25 +26,26 @@
                     <a href="mailto:giy.hands@gmail.com">giy.hands@gmail.com</a>
                 </span>
                 <!-- </div> -->
-
             </div>
 
+
+            <!-- submit button for normal -->
+            {{#if currentUser}}
+                <div class="collapse navbar-collapse"> 
+                    <ul class="nav navbar-nav"> <li><a href="{{pathFor 'postSubmit'}}">Submit Post</a></li> </ul>
+                </div>
+            {{/if}}
 
             <!-- temp block -->
             <div class="collapse navbar-collapse" id="temp-block"></div>
 
-            <!-- FIXME: submit post not appear even when loged in -->
-            <div class="collapse navbar-collapse" id="navigation">
+            <!-- submit button for mobile -->
+            <div class="collapse navbar-collapse" id='navigation'> 
                 {{#if currentUser}}
-                <ul class="nav navbar-nav"> <li><a href="{{pathFor 'postSubmit'}}">Submit Post</a></li> </ul>
+                    <ul class="nav navbar-nav"> <li><a href="{{pathFor 'postSubmit'}}">Submit Post</a></li> </ul>
                 {{/if}}
-
-
-                <!-- <ul class="nav navbar-nav navbar-right">
-                    {{> loginButtons }}
-                </ul> -->
-
             </div>
+
 
             <!-- links of tag -->
             &nbsp;

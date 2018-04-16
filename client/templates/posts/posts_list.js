@@ -14,13 +14,7 @@ var getScrollPosition = function () {
 
 Template.postsList.onCreated(function() {
 
-    console.log("postsList.onCreate()");
-    // reset slideImages - will be made by post_item.js
-    // console.log("postsList.onCreate() reset slideImages");
-    // Session.set("slideImages", null);
-    // global_arr = null;
-    // console.log("session slideimages: " + Session.get("slideImages"));
-
+    // console.log("postsList.onCreate()");
 
     // attach handler
     $(document).on("scroll", getScrollPosition);
@@ -29,46 +23,25 @@ Template.postsList.onCreated(function() {
 
 Template.postsList.helpers({
     getLength: function () {
-    // getLength: function (data) {
-        console.log("getLength");
-        // console.log(posts)
-        // var data = posts; // predefined posts
-        // console.log(data)
+        // console.log("getLength");
         let len = this.length;
-        console.log(len)
+        // console.log(len)
         Session.set('postLength', len);
     },
     prepareYearTag: function(data){
-        console.log("prepareYearTag()")
-        // console.log(data)
+        // console.log("prepareYearTag()")
 
         for (var i of data) {
-            // console.log(i);
-            // console.log(i.dateBegin);
-            // console.log(moment(i.dateBegin).year());
             let y = moment(i.dateBegin).year();
             if (years_arr.indexOf(y) <= -1) {
                 years_arr.push(y);
             }
         }
 
-        console.log(years_arr);
-    },
-    sorted: function(d){
-        console.log("sorted()");
-        console.log(d);
-        // return _.sortBy(todo.tags, function(tag) {
-        //     return tag;
-        //   });
-
-        return d
-    },
-    d: function(data) {
-        console.log(data);
-
+        // console.log(years_arr);
     },
     posts: function (_tag) {
-        console.log(_tag);
+        // console.log(_tag);
 
         // posts is global on this file
 
@@ -88,11 +61,6 @@ Template.postsList.helpers({
         }
         // console.log(posts);
     },
-    getPosts: function() {
-        console.log(posts);
-        return posts;
-    }
-
 });
 
 
@@ -233,5 +201,6 @@ Template.postsList.onDestroyed(function() {
 
     // var collapsedButton = document.getElementById("navigation");
 
+    // list element of #navigation
     $('.nav.navbar-nav').remove();
 });
