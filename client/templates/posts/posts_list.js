@@ -101,7 +101,7 @@ Template.postsList.onRendered(function() {
 
     for (k in tagsObj) {
         var ul = document.createElement('ul');
-        ul.className = "nav navbar-nav";
+        ul.className = "nav navbar-nav tags";
         var li = document.createElement('li');
         var a = document.createElement('a');
         a.href = PATH_postList + k; // link on the tag links (on header bar)
@@ -201,6 +201,6 @@ Template.postsList.onDestroyed(function() {
 
     // var collapsedButton = document.getElementById("navigation");
 
-    // list element of #navigation
-    $('.nav.navbar-nav').remove();
+    // list element of of tags of #navigation
+    $('.nav.navbar-nav.tags').remove();
 });

@@ -1,4 +1,5 @@
 <template name="header">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
     <nav class="navbar navbar-default" role="navigation">
         <!-- <div class="container-fluid"> -->
         <div class="container">
@@ -6,44 +7,32 @@
 
                 <!-- collapse button -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Tags</span>
+                    <span class="">O</span>
+                    <!-- <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> -->
                 </button>
-
                 <a class="navbar-brand" href="{{pathFor 'postsList' tag=""}}">Gangil yi</a>
-
-
-                <!-- email normal -->
-                <span class="navbar-right" id="email"> <a href="mailto:giy.hands@gmail.com">giy.hands@gmail.com</a> </span>
-                
-                <!-- email mobile -->
-                <div class="row email-mobile"> </div>
-
-                <!-- <div id="email-mobile"> -->
-                <span id="email-mobile">
-                    <a href="mailto:giy.hands@gmail.com">giy.hands@gmail.com</a>
-                </span>
-                <!-- </div> -->
             </div>
 
-
-            <!-- submit button for normal -->
-            {{#if currentUser}}
-                <div class="collapse navbar-collapse"> 
-                    <ul class="nav navbar-nav"> <li><a href="{{pathFor 'postSubmit'}}">Submit Post</a></li> </ul>
-                </div>
-            {{/if}}
+            <div id='normal-view'>
+                <ul class="static nav navbar-nav">
+                    {{#if currentUser}} <li><a href="{{pathFor 'postSubmit'}}">Submit Post</a> </li> {{/if}} 
+                    <li> <a href="{{pathFor 'cvPage'}}">CV</a> </li>
+                </ul>
+            </div>
 
             <!-- temp block -->
             <div class="collapse navbar-collapse" id="temp-block"></div>
 
             <!-- submit button for mobile -->
             <div class="collapse navbar-collapse" id='navigation'> 
+                <ul class="nav navbar-nav"> <li><a href="{{pathFor 'cvPage'}}">CV</a></li> </ul>
                 {{#if currentUser}}
                     <ul class="nav navbar-nav"> <li><a href="{{pathFor 'postSubmit'}}">Submit Post</a></li> </ul>
                 {{/if}}
+                <hr>
             </div>
 
 
