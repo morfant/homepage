@@ -389,11 +389,6 @@ svg .circle-text {
   font-family: 'Iropke Batang', serif; 
 }
 
-/* space between bottom of header and body */
-body {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
 
 /* anchor tag */
  /* unvisited link */
@@ -413,8 +408,12 @@ a:hover {
 
 /* selected link */
 a:active {
-  color: black;
+  color: green;
 } 
+
+#tag-links > a:active {
+  color: red;
+}
 
 
 
@@ -455,8 +454,6 @@ a:active {
     margin: 10px 0px;
   }
 
-
-
   #email {
     display: none;
   }
@@ -484,6 +481,42 @@ a:active {
     min-height: 0px;
   }
 
+  /* vertical distance of li elements */
+  .nav.navbar-nav li, .nav.navbar-nav.tags li {
+    margin: 0px 0;
+  }
+
+
+  body {
+    padding: 0px 0px;
+
+  }
+  
+  .container > .navbar-header {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  
+  .container > #navigation {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+
+
+
+  .container {
+    padding: 0px 0px;
+    /* margin-right: 0px;
+    margin-left: 0px; */
+  }
+
+  .navbar-header {
+    
+    /* margin-right: 15px;
+    margin-left: 15px; */
+  }
 
 }
 
@@ -501,6 +534,12 @@ a:active {
   #email-mobile {
     padding: 15px 15px;
   } */
+
+  /* space between bottom of header and body */
+  body {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 
  }
 

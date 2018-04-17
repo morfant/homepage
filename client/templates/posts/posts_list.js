@@ -76,6 +76,12 @@ Template.postsList.onRendered(function() {
         delete tagLinkSpan;
     }
 
+    // clear previous tags on collapsed 
+    var collapsed = $('.nav.navbar-nav.tags');
+    if (collapsed) {
+        $('.nav.navbar-nav.tags').remove();
+    }
+
     // Make new tag links holder
     tagLinkSpan = document.createElement("SPAN");
     
@@ -84,13 +90,17 @@ Template.postsList.onRendered(function() {
         // console.log(k); // key
         // console.log(tagsObj[k]); // value
 
-        // Tag links on navbar (header.html)
-        var linkText = document.createTextNode(" " + k);
-        var a = document.createElement("A");
-        a.href = PATH_postList + k; // link on the tag links (on header bar)
-        a.appendChild(linkText);
-        tagLinkSpan.appendChild(a); // attach to holder
-    }
+        if (k) { // ignore if it has no tag
+            // console.log("tag: " + k); // key
+            // Tag links on navbar (header.html)
+            var linkText = document.createTextNode(" " + k);
+            var a = document.createElement("A");
+            a.href = PATH_postList + k; // link on the tag links (on header bar)
+            a.appendChild(linkText);
+            tagLinkSpan.appendChild(a); // attach to holder
+        }
+
+   }
 
     // console.log("posts_list onRendered() make links");
     document.getElementById("tag-links").appendChild(tagLinkSpan);
@@ -100,23 +110,26 @@ Template.postsList.onRendered(function() {
     var collapsedButton = document.getElementById("navigation");
 
     for (k in tagsObj) {
-        var ul = document.createElement('ul');
-        ul.className = "nav navbar-nav tags";
-        var li = document.createElement('li');
-        var a = document.createElement('a');
-        a.href = PATH_postList + k; // link on the tag links (on header bar)
-        var linkText = document.createTextNode(" " + k);
-        a.appendChild(linkText);
-        li.appendChild(a);
-        ul.appendChild(li);
-        collapsedButton.appendChild(ul);
+
+        if (k) { // ignore if it has no tag
+            var ul = document.createElement('ul');
+            ul.className = "nav navbar-nav tags";
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = PATH_postList + k; // link on the tag links (on header bar)
+            var linkText = document.createTextNode(" " + k);
+            a.appendChild(linkText);
+            li.appendChild(a);
+            ul.appendChild(li);
+            collapsedButton.appendChild(ul);
+        }
     }
 
 
 
 
     ///////////////
-    // attach year tag on before first post each year 
+    // attach year tag before first post for each year 
     this.autorun(() => {
 
         let dateOrder = [];
@@ -200,7 +213,4 @@ Template.postsList.onDestroyed(function() {
     $(document).off("scroll");
 
     // var collapsedButton = document.getElementById("navigation");
-
-    // list element of of tags of #navigation
-    $('.nav.navbar-nav.tags').remove();
 });
