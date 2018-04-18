@@ -10,16 +10,33 @@ Template.header.events({
         $('#navigation').collapse('hide')
     },
 
+    'click #tag-links span a' : function(e) {
+        // console.log(e.target)
+        // Session.set("selectedTag", e.target.textContent);
+
+        let tagLinks = document.getElementById('tag-links').childNodes[0].childNodes;
+        // console.log(tagLinks)
+
+        for (tag of tagLinks) {
+            // console.log(tag);
+            tag.style.color = 'grey';
+        }
+
+        e.target.style.color = 'hotpink';
+
+
+    }
+
 });
 
 
 
 Template.header.onRendered(function() {
-    console.log("header rendered()");
+    // console.log("header rendered()");
 
 
     this.autorun(() => {
-        // console.log("header onRendered()");
+        // console.log("header rendered changed()");
 
         // made from mind_map.js
         var tagsObj = Session.get("all_tags");

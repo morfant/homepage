@@ -6,7 +6,7 @@ Session.set('all_tags', "");
 
 
 var getPostsByTag = function(_tag) {
-    console.log("getPostsByTag()");
+    // console.log("getPostsByTag()");
 
     var posts = [];
 
@@ -25,7 +25,7 @@ var getPostsByTag = function(_tag) {
 }
 
 var posts2postsObj = function(_posts) {
-    console.log("posts2postsObj")
+    // console.log("posts2postsObj")
 
     // console.log(_posts)
 
@@ -78,7 +78,7 @@ Template.mindMap.helpers({
 
     filteredTagList: function(_tag) {
 
-        console.log("filteredTagList()");
+        // console.log("filteredTagList()");
         var posts = [];
         posts = getPostsByTag(_tag)
         Session.set('filtered_tags', posts2postsObj(posts));
@@ -86,7 +86,7 @@ Template.mindMap.helpers({
     },
     makeTagList: function() {
 
-        console.log("makeTagList()");
+        // console.log("makeTagList()");
         var posts = [];
         posts = getPostsByTag();
         Session.set('all_tags', posts2postsObj(posts));
