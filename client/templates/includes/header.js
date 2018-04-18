@@ -1,6 +1,9 @@
+
+
 Template.header.onCreated(function() {
 
     // console.log("header created()");
+    Session.set('selectedTag', 'Tags');
 
 });
 
@@ -10,6 +13,7 @@ Template.header.events({
         $('#navigation').collapse('hide')
     },
 
+    // set color of selected tag on desktop view
     'click #tag-links span a' : function(e) {
         // console.log(e.target)
         // Session.set("selectedTag", e.target.textContent);
@@ -20,20 +24,32 @@ Template.header.events({
         for (tag of tagLinks) {
             // console.log(tag);
             tag.style.color = 'grey';
+            // tag.style.fontSize = '100%';
         }
 
         e.target.style.color = 'hotpink';
+        // e.target.style.fontSize = '120%';
+    },
 
-
+    // set Button name as selected tag on mobile view
+    'click .tag-links-a' : function(e) {
+        // console.log(e.target);
+        Session.set('selectedTag', e.target.textContent);
     }
 
 });
 
 
+Template.header.helpers({
+    buttonName: function() {
+        return Session.get('selectedTag');
+    }
+
+});
+
 
 Template.header.onRendered(function() {
     // console.log("header rendered()");
-
 
     this.autorun(() => {
         // console.log("header rendered changed()");
