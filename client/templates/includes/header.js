@@ -32,10 +32,10 @@ Template.header.events({
     },
 
     // set Button name as selected tag on mobile view
-    'click .tag-links-a' : function(e) {
-        // console.log(e.target);
-        Session.set('selectedTag', e.target.textContent);
-    }
+    // 'click .tag-links-a' : function(e) {
+    //     // console.log(e.target);
+    //     Session.set('selectedTag', e.target.textContent);
+    // }
 
 });
 
