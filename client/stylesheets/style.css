@@ -128,9 +128,17 @@ body {
   margin: 0;
 }
 
+
+#back-list {
+  direction: rtl;
+  /* text-align: start; */
+}
+
 .back-to-list {
   display: inline-block;
-  margin-left: 100px;
+  /* text-align: start; */
+  /* direction: rtl; */
+  /* margin-left: 80%; */
 }
 
 .back-to-filtered-list {
@@ -144,7 +152,7 @@ body {
   font-family: 'Iropke Batang', serif; 
 
   /* Top, Right, Bottom, Left */
-  margin: 50px 100px 150px 100px; 
+  margin: 50px 50px 150px 50px; 
 }
 
 .post .post-content .text .post-audio{
@@ -168,14 +176,15 @@ body {
 }
 
 .post .post-content .text .post-image {
-  vertical-align:middle;
-  /* max-width: 700px; */
+  /* horizontal center */
   max-width: 90%;
   display: block;
-  margin: 30px 0px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
+/* not using: discuss, comment */
 .post .discuss {
   display: block;
   float: right;
@@ -523,6 +532,7 @@ a:active {
     /* margin-right: 15px;
     margin-left: 15px; */
   }
+
 
 }
 

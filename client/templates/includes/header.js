@@ -15,9 +15,11 @@ Template.header.events({
 
     // set color of selected tag on desktop view
     'click #tag-links span a' : function(e) {
+        // console.log(Session.get('selectedTag'));
         // console.log(e.target)
         // Session.set("selectedTag", e.target.textContent);
 
+        // select element : children(a) of child(span) of #tag-links
         let tagLinks = document.getElementById('tag-links').childNodes[0].childNodes;
         // console.log(tagLinks)
 
@@ -52,7 +54,7 @@ Template.header.onRendered(function() {
     // console.log("header rendered()");
 
     this.autorun(() => {
-        // console.log("header rendered changed()");
+        console.log("header rendered changed()");
 
         // made from mind_map.js
         var tagsObj = Session.get("all_tags");
@@ -115,7 +117,36 @@ Template.header.onRendered(function() {
             }
         }
 
+
+        // Set color hotpink to selected tag
+        let tagLinks = document.getElementById('tag-links').childNodes[0].childNodes;
+
+        if (tagLinks.length) {
+            // console.log("haha")
+            for (tag of tagLinks) {
+                let t = tag.textContent;
+                let ses = Session.get('selectedTag');
+
+                check(t, String);
+                check(ses, String);
+
+                if (t.split(' ')[1] === ses) {
+
+                    // console.log("matched!!!!");
+                    tag.style.color = 'hotpink';
+                    return
+
+                } else {
+                    // console.log("not match");
+                }
+            }
+
+
+        }
+
     });
+
+  
 
 });
 

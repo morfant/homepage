@@ -11,7 +11,7 @@ Template.frontGate.helpers({
         });
 
         if (!link) {
-            console.log("No link exists!");
+            // console.log("No link exists!");
             return false;
         }
 

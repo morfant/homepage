@@ -10,11 +10,81 @@ Template.postPage.onCreated(function () {
 
 });
 
+var makeTagLinks = function(tag_array) {
+
+    // let tagLinks = document.createElement('span');
+    let tagLinks = document.getElementById('tags')
+
+    // console.log(tagLinks);
+    // console.log(tag_array);
+
+    for (t of tag_array) {
+        // console.log(t)
+
+        let a = document.createElement('a');
+        a.href = PATH_postList + t;
+        a.className = "post-page-tag-links-a";
+        let text = document.createTextNode("#" + t);
+        a.appendChild(text);
+
+        tagLinks.appendChild(a);
+    }
+
+
+
+}
+
 Template.postPage.helpers({
     tags: function() {
         // console.log(this.tag)
         // console.log((this.tag).length);
         return (this.tag).length;
+
+    },
+
+    /*
+    
+        for (k in tagsObj) {
+
+            if (k) { // ignore if it has no tag
+                var ul = document.createElement('ul');
+                ul.className = "nav navbar-nav tags";
+                var li = document.createElement('li');
+                var a = document.createElement('a');
+                a.href = PATH_postList + k; // link on the tag links (on header bar)
+                a.className = "tag-links-a";
+                var linkText = document.createTextNode(" " + k);
+                a.appendChild(linkText);
+                li.appendChild(a);
+                ul.appendChild(li);
+                collapsedButton.appendChild(ul);
+            }
+        }
+
+
+    */
+    tagLinks: function() {
+        // console.log(this.tag)
+
+        let tags = this.tag;
+        // let tagLinks = document.createElement('span');
+        let tagLinks = document.getElementById('tags')
+
+        for (t of tags) {
+            console.log(t)
+
+            let a = document.createElement('a');
+            a.hred = PATH_postList + t;
+            a.className = "post-page-tag-links-a";
+            let text = document.createTextNode(" " + t);
+            a.appendChild(text);
+
+            tagLinks.appendChild(a);
+        }
+
+
+        // let a = "<a href=" + ('postsList ')
+        // return 
 
     },
     ownPost: function () {
@@ -127,6 +197,15 @@ Template.postPage.helpers({
     getHasAudio: function() {
         return hasAudio;
     },
+
+
+
+});
+
+
+Template.postPage.onRendered(function () {
+
+    makeTagLinks(Template.currentData().tag)
 
 
 
