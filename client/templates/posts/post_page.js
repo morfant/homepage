@@ -15,22 +15,25 @@ var makeTagLinks = function(tag_array) {
     // let tagLinks = document.createElement('span');
     let tagLinks = document.getElementById('tags')
 
-    // console.log(tagLinks);
-    // console.log(tag_array);
+    Object.keys(tag_array).forEach(function(key) {
+        // console.log(key)
+        // console.log(tag_array[key])
 
-    for (t of tag_array) {
-        // console.log(t)
+        let t = tag_array[key];
 
         let a = document.createElement('a');
         a.href = PATH_postList + t;
         a.className = "post-page-tag-links-a";
         let text = document.createTextNode("#" + t);
         a.appendChild(text);
-
         tagLinks.appendChild(a);
-    }
 
+        if (key != tag_array.length - 1) {
+            let spliter = document.createTextNode(", ");
+            tagLinks.appendChild(spliter);
+        }
 
+    })
 
 }
 
@@ -39,30 +42,6 @@ Template.postPage.helpers({
         // console.log(this.tag)
         // console.log((this.tag).length);
         return (this.tag).length;
-
-    },
-    tagLinks: function() {
-        // console.log(this.tag)
-
-        let tags = this.tag;
-        // let tagLinks = document.createElement('span');
-        let tagLinks = document.getElementById('tags')
-
-        for (t of tags) {
-            console.log(t)
-
-            let a = document.createElement('a');
-            a.hred = PATH_postList + t;
-            a.className = "post-page-tag-links-a";
-            let text = document.createTextNode(" " + t);
-            a.appendChild(text);
-
-            tagLinks.appendChild(a);
-        }
-
-
-        // let a = "<a href=" + ('postsList ')
-        // return 
 
     },
     ownPost: function () {
