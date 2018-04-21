@@ -126,6 +126,7 @@ body {
 
 .post .post-content p {
   margin: 0;
+  text-align: justify;
 }
 
 
@@ -589,4 +590,9 @@ div #front-gate span {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
+}
+
+
+.cv-text {
+  align: justify;
 }
