@@ -41,28 +41,6 @@ Template.postPage.helpers({
         return (this.tag).length;
 
     },
-
-    /*
-    
-        for (k in tagsObj) {
-
-            if (k) { // ignore if it has no tag
-                var ul = document.createElement('ul');
-                ul.className = "nav navbar-nav tags";
-                var li = document.createElement('li');
-                var a = document.createElement('a');
-                a.href = PATH_postList + k; // link on the tag links (on header bar)
-                a.className = "tag-links-a";
-                var linkText = document.createTextNode(" " + k);
-                a.appendChild(linkText);
-                li.appendChild(a);
-                ul.appendChild(li);
-                collapsedButton.appendChild(ul);
-            }
-        }
-
-
-    */
     tagLinks: function() {
         // console.log(this.tag)
 
@@ -202,6 +180,13 @@ Template.postPage.helpers({
 
 });
 
+
+Template.postPage.events({
+    'click .back-to-list' : function(e) {
+        // console.log("back")
+        history.back();
+    }
+});
 
 Template.postPage.onRendered(function () {
 
