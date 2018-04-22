@@ -22,28 +22,8 @@ Template.postEdit.events({
 
         var currentPostId = this._id;
 
-        // Handle tag
-        var tags = [];
         var tag = $(e.target).find('[name=tag]').val();
-
-        if (/\S/.test(tag)) { // if there's at least one character of non whitespace
-            tag = tag.replace(/\s+/gi, '').split(','); // 공백 제거, ','를 기준으로 나눔
-        }
-
-        // '#' 제거
-        if (tag != null && tag.length) {
-            tag.forEach(function (t) {
-                if (t[0] == '#') {
-                    var regex = /#+/gi;
-                    var rt = t.replace(regex, '');
-                    tags.push(rt);
-                } else {
-                    tags.push(t);
-                }
-            });
-        }
-        // console.log(tags);
-
+        var tags = postSubmitHandleTag(tag);
 
         var postProperties = {
             title: $(e.target).find('[name=title]').val(),
