@@ -30,3 +30,10 @@ momentjs:moment
 d3js:d3
 kadira:blaze-layout
 twbs:bootstrap
+tomi:upload-server
+tomi:upload-jquery
+meteorhacks:ssr
+meteorhacks:npm
+
+
+npm-container
