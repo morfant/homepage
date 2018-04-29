@@ -46,8 +46,15 @@ Template.frontSetting.events({
     'submit form': function (e) {
         e.preventDefault();
 
+        var _url = $(e.target).find('[name=front-image]').val();
+        var isGDlink = _url.includes(googleDriveOrdinaryPrefix);
+    
+        if (isGDlink) {
+          _url = convertGDlink(_url);
+        }
+    
         var settings = {
-            frontImageLink: convertGDlink($(e.target).find('[name=front-image]').val()),
+            frontImageLink: _url, 
             cvText: $(e.target).find('[name=cv-text]').val(),
         }
 

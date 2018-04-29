@@ -1,11 +1,16 @@
 <template name="frontSetting">
     <form class="main form">
 
+
         <!-- front gate image link -->
         <div class="form-group {{errorClass 'front-image'}}">
-            <label class="control-label" for="front-image">Background image google drive link</label>
+            <label class="control-label" for="front-image">Background image google drive link / uploaded image path</label>
             <div class="controls">
                 <input name="front-image" id="front-image-link" type="text" value="{{getFrontImageLink}}" placeholder="https://drive.google.com/open?id=1nFd4_LexdGDkVH9TZpShec0GmNblNlIs" class="form-control" />
+                <br>
+                <!-- backgrond image upload -->
+                {{> uploadJquery}}
+
                 <span class="help-block">{{errorMessage 'front-image'}}</span>
             </div>
         </div>

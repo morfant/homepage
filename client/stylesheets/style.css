@@ -537,7 +537,7 @@ a:active {
 
 }
 
-@media(min-width:768px) {
+@media(min-width:769px) {
 
   #navigation {
     display: none !important;
