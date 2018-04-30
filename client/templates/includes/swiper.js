@@ -10,6 +10,7 @@ var initSwiper = function() {
         mySwiper.destroy();
     }
     mySwiper = new Swiper('.swiper-container', {
+        mode: 'horizontal',
         spaceBetween: 30,
         centeredSlides: true,
         autoplay: {
@@ -25,6 +26,7 @@ var initSwiper = function() {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+        calculateHeight: true
     })
 
 }
