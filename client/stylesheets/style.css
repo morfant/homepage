@@ -59,7 +59,7 @@ body {
 .post {
   /* For modern browsers */
   /* For IE 6/7 (trigger hasLayout) */
-  *zoom: 1;
+  /* *zoom: 1; */
   position: relative;
   opacity: 1;
 }
@@ -359,7 +359,6 @@ body {
 }
 
 .swiper-button-prev {
-
 }
 
 #swiper-tag-text {
@@ -574,7 +573,8 @@ a:active {
     padding-bottom: 30px;
   }
 
- }
+
+}
 
 
 

@@ -54,7 +54,7 @@ Template.header.onRendered(function() {
     // console.log("header rendered()");
 
     this.autorun(() => {
-        console.log("header rendered changed()");
+        // console.log("header rendered changed()");
 
         // made from mind_map.js
         var tagsObj = Session.get("all_tags");

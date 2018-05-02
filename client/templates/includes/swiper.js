@@ -56,12 +56,13 @@ var addSliders = function() {
 
             var div = document.createElement("DIV");
             div.className = "swiper-slide";
-            div.style = "cursor:pointer; background-image:url(" + convertGDlink(obj.imglink) + ")";
-            // div.style = "background-image:url(" + convertGDlink(obj.imglink) + ")";
+            div.style.backgroundImage = "url(" + convertGDlink(obj.imglink) + ")";
+            div.style.cursor = "pointer";
 
             var a = document.createElement("A");
             a.href = "/post/"+obj.id; // link on the slide image
-            a.style = "width:90%; height:100%";
+            a.style.width = "90%";
+            a.style.height = "100%";
             // console.log(a.href);
 
             // Title text
