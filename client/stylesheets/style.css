@@ -426,7 +426,7 @@ a:active {
 
 
 
-@media(max-width:768px) {
+@media(max-width:767px) {
 /* @media(max-device-width:768px) { */
 
   .swiper-container {
@@ -553,7 +553,7 @@ a:active {
 
 }
 
-@media(min-width:769px) {
+@media(min-width:768px) {
 
   #navigation {
     display: none !important;
