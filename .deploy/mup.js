@@ -16,7 +16,7 @@ module.exports = {
 
   proxy: {
     // domains: 'website.com,www.website.com',
-    domains: 'gangilyi.xyz,morfant.cafe24.com',
+    domains: 'www.gangilyi.xyz,gangilyi.xyz,morfant.cafe24.com',
     ssl: {
       // Enable let's encrypt to create free certificates.
       // The email is used by Let's Encrypt to notify you when the
@@ -41,24 +41,13 @@ module.exports = {
     env: {
       // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
-      ROOT_URL: 'https://gangilyi.xyz',
-//      ROOT_URL: 'https://morfant.cafe24.com',
-      // MONGO_URL: 'mongodb://localhost/meteor',
+      ROOT_URL: 'https://www.gangilyi.xyz',
       MONGO_URL: _mongo_account,
     },
 
     volumes: {
       'host_Uploads': '/host_Uploads'
     },
-
-    // ssl: { // (optional)
-    //   // Enables let's encrypt (optional)
-    //   autogenerate: {
-    //     email: 'giy.hands@gmail.com',
-    //     // comma separated list of domains
-    //     domains: 'gangilyi.xyz,morfant.cafe24.com'
-    //   }
-    // },
 
     docker: {
       // change to 'abernix/meteord:base' if your app is using Meteor 1.4 - 1.5
@@ -70,6 +59,7 @@ module.exports = {
     enableUploadProgressBar: true
   },
 
+  // for using mongo on the server (means not external)
   //mongo: {
   //  version: '3.4.1',
   //  servers: {
