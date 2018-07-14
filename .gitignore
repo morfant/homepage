@@ -1,3 +1,5 @@
 node_modules/
 .deploy/ps.js
-.jpg, .png, .gif
+*.jpg
+*.png
+*.gif
